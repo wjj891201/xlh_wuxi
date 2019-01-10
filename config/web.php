@@ -2,11 +2,6 @@
 
 $params = require(__DIR__ . '/params.php');
 
-Yii::$classMap['Simple_html_dom'] = '@app/libs/Simple_html_dom.php';
-Yii::$classMap['Mypdf']           = '@app/libs/pdf/Mypdf.php';
-Yii::$classMap['PHPExcel'] = '@app/libs/PHPExcel/PHPExcel.php';
-
-
 $config = [
     'timeZone' => 'Asia/Shanghai',
     'id' => 'basic',
@@ -92,8 +87,7 @@ $config = [
     'params' => $params,
     //模块
     'modules' => [
-        'admin' => ['class' => 'app\modules\admin\admin'],
-        'approve' => ['class' => 'app\modules\approve\approve'],
+        'admin' => ['class' => 'app\modules\admin\admin']
     ],
 ];
 
