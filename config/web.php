@@ -11,17 +11,11 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'xlh_cms'
+            'cookieValidationKey' => 'xlh_wuxi'
         ],
         'urlManager' => require(__DIR__ . '/url.php'),
         'cache' => [
             'class' => 'yii\caching\FileCache',
-        ],
-        # 审批用户的认证类
-        'approvr_user' => [
-            'class' => 'yii\web\User',
-            'identityClass' => 'app\models\ApproveUser',
-            'enableAutoLogin' => true,
         ],
         # 系统默认提供的认证类
         'user' => [

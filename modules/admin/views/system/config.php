@@ -82,12 +82,6 @@ $this->registerJsFile('@web/public/backend/js/jquery.validate.js', ['depends' =>
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">审批后台域名</td>
-                                <td colspan="2">
-                                    <input type="text" name="approve_url" value="<?= !empty($info['approve_url']) ? $info['approve_url'] : '' ?>" size="80" class="inpMain" />
-                                </td>
-                            </tr>
-                            <tr>
                                 <td align="right">是否关闭网站</td>
                                 <td colspan="2">
                                     <label for="site_closed_0">

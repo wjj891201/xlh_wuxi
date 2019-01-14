@@ -1,0 +1,269 @@
+@charset "UTF-8";
+
+.menu-container {
+	box-sizing: border-box;
+	width: 100%;
+	height: 90px;
+	background: #fff;
+	z-index: 99999;
+	padding: 22px 0;
+	position: relative;
+}
+
+.pull-down {
+	height: 64px;
+	position: fixed;
+	top: 0;
+	box-shadow: 0 1px 10px #aaa;
+	padding: 7px 0;
+}
+
+.menu-content{
+	height: 49px;
+}
+
+.menu-logo{
+	float: left;
+	width: auto;
+	/*width: 318px;*/
+	height: 49px;
+}
+
+.menu-logo img{
+	display: block;
+	float: left;
+}
+
+.menu-nav{
+	padding: 7px 0;
+	float: right;
+}
+
+.menu-nav li{
+	float: left;
+	height: 36px;
+	margin-right: 13px;
+	position: relative;
+
+}
+
+.menu-nav li a{
+	font-size: 16px;
+	color: #666;
+	line-height: 34px;
+	border:1px solid #fff;
+	display: block;
+	background: #fff;
+	padding: 0 10px;
+}
+
+.menu-nav li.menu-cur a {
+	color:#fc5656
+}
+
+.menu-nav li a:hover{
+	color: #fc5656;
+	text-decoration: none;
+}
+
+.menu-nav li.more:hover a {
+	border: 1px solid #eee;
+	border-bottom: 1px solid #fff;
+	position: relative;
+	z-index: 2000;
+}
+
+.menu-nav-down {
+	display: none;
+	width: 160px;
+	padding: 19px 19px 10px 19px;
+	background: #fff;
+	border:1px solid #eee;
+	position: absolute;
+	top: 35px;
+	left: 0;
+	z-index: 100;
+}
+
+.wxmenu-nav-down {
+    display: none;
+    width: 160px;
+    padding: 19px 19px 10px 19px;
+    background: #fff;
+    border:1px solid #eee;
+    position: absolute;
+    top: 130px;
+    left: 0;
+    z-index: 100;
+}
+
+.menu-nav-down img{
+	display: block;
+	margin-bottom: 15px;
+}
+
+.menu-nav-down a{
+	display: block;
+	margin-bottom: 5px;
+	padding: 0;
+	border: 0 !important;
+}
+
+.menu-nav li.more:hover .menu-nav-down{
+    display: block;
+}
+
+.yuanqu{
+	height: 36px;
+	border: 1px solid #eee;
+	float: right;
+	border-radius: 5px;
+	width: 138px;
+	font-size: 14px;
+	background: url('../images/arrow.jpg') 120px center no-repeat;
+	margin-top: 5px;
+}
+
+.yuanqu a{
+	display: block;
+	line-height: 36px;
+	color: #666;
+	background: url('../images/tv.jpg') 10px center no-repeat;
+	padding-left: 30px;
+}
+
+.yuanqu a:hover{
+	color: #fc5656;
+}
+
+.zjgyuanqu {
+	width: 110px;
+	background-position: 94px center;
+	margin-left: 10px;
+}
+.zjgyuanqu a{background: url(../images/ser_top.png) 10px center no-repeat;}
+
+.smenu-container {
+	box-sizing: border-box;
+	width: 100%;
+	height: 60px;
+	background: #fff;
+	z-index: 99999;
+	padding: 5px 0;
+	border-top:1px solid #dddddd;
+	border-bottom:1px solid #dddddd;
+	margin-left:10px;
+}
+
+.wxmenu-container {
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    z-index: 99999;
+    padding: 5px 0;
+    border-top:1px solid #dddddd;
+    border-bottom:1px solid #dddddd;
+}
+
+.smenu-content{
+	height: 90px;
+	display:block;
+}
+
+.smenu-navm,.spmenu-nav{
+	/*padding: 7px 0;*/
+	float: left;
+}
+
+.smenu-nav li,.spmenu-nav li{
+	float: left;
+	height: 100%;
+	margin-right: 13px;
+	position: relative;
+    display:table;
+}
+
+.smenu-nav  li a,.spmenu-nav li a:first-child{
+	font-size: 16px;
+	color: #666666;
+    height: 100%;
+	background: #fff;
+	padding: 0 10px;
+    display: table-cell;
+    vertical-align: middle;
+    min-width: 64px;
+    text-align: center;
+}
+
+.spmenu-nav li.smenu-cur a {
+	color:#666666;
+}
+.smenu-nav li.smenu-cur a {
+	color:#666666;
+}
+
+.spmenu-nav li:hover{
+	 text-decoration: none;
+	 color:#ffffff;
+	 background: url(../images/top_bj.png) -10px center no-repeat;
+ }
+
+.spmenu-nav li a:hover{
+	text-decoration: none;
+	color:#ffffff;
+	background: url(../images/top_bj.png) -10px center no-repeat;
+    background-size:cover;
+}
+
+.smenu-nav-down {
+	display: none;
+	width: 160px;
+	padding: 19px 19px 10px 19px;
+	background: #fff;
+	border:1px solid #eee;
+	position: absolute;
+	top: 35px;
+	left: 0;
+	z-index: 100;
+}
+
+.smenu-nav-down img{
+	display: block;
+	margin-bottom: 15px;
+}
+
+.smenu-nav-down a{
+	display: block;
+	margin-bottom: 5px;
+	padding: 0;
+	border: 0 !important;
+}
+
+.smenu-nav li.more:hover .smenu-nav-down{
+	display: block;
+}
+
+.spmenu-nav{
+	/*padding: 7px 0;*/
+	float: right;
+	height: 100%;
+	position: absolute;
+	left: 40%;
+	top: 0px;
+}
+
+.cone a:hover{
+    color: #108aed;
+}
+
+.ctwo a:hover{
+    color: #108aed;
+}
+
+.smenu-cur {
+	background: url(../images/top_bj.png) -10px center no-repeat !important;
+	background-size:cover !important;
+	height: 36px;
+	color:#ffffff !important;
+}

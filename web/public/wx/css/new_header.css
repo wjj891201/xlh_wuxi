@@ -1,0 +1,389 @@
+@charset "UTF-8";
+/**
+ *
+ * @authors Your Name (you@example.org)
+ * @date    2016-09-04 14:20:39
+ * @version $Id$
+ */
+
+.top_header{
+	height: 30px;
+	background: #f1f1f1
+}
+
+.top_index{
+	display: block;
+	float: left;
+	height: 32px;
+	color: #999999;
+	font-size: 12px;
+	line-height: 32px;
+	background: url('../images/home_icon.png') 0 8px no-repeat;
+	padding-left: 20px;
+	margin-right: 25px;
+}
+.stop_index{
+	display: block;
+	float: left;
+	height: 40px;
+	color: #ffffff;
+	font-size: 12px;
+	line-height: 40px;
+	background: url('../images/home.png') 0 12px no-repeat;
+	padding-left: 20px;
+	margin-right: 25px;
+	margin-left: 12px;
+}
+
+.login_state{
+	height: 32px;
+	float: right;
+	display: block;
+	position: relative;
+	z-index: 1000;
+}
+
+.top_login, .top_register{
+	color: #999;
+	font-size: 12px;
+	float: left;
+	display: block;
+	line-height: 32px;
+	height: 32px;
+	margin-left: 25px;
+}
+.stop_login{
+	color: #ffffff;
+	font-size: 12px;
+	float: left;
+	display: block;
+	line-height: 40px;
+	height: 40px;
+	margin-left: 25px;
+}
+.stop_register{
+	color: #ffffff;
+	font-size: 12px;
+	float: left;
+	display: block;
+	line-height: 40px;
+	height: 40px;
+	margin-left: 6px;
+}
+.top_register{
+	color: #e70000
+}
+
+
+.top_list{
+	height: 32px;
+	float: right;
+	margin-left: 15px;
+}
+
+.top_list li{
+	float: left;
+	font-size: 12px;
+	color: #999999;
+	height: 14px;
+	line-height: 14px;
+	padding-top:8px;
+	padding-bottom: 10px;
+	padding-right: 5px;
+}
+.top_list li.last{
+	border: 1px solid #f1f1f1;
+	height: 12px;
+	line-height: 12px;
+	padding-right: 15px;
+}
+
+.top_mobile{
+	background: url('../images/mobile_top.png') 10px 9px no-repeat;
+	padding-left: 25px;
+}
+
+.top_list li a{
+	color: #999
+}
+.top_list li a:hover{
+	color: #fc5656
+}
+
+.navContent{
+	/*padding: 25px 0;*/
+	height: 49px;
+}
+
+.logo{
+	float: left;
+	width: 318px;
+	height: 49px;
+}
+.logo img{
+	display: block;
+	float: left;
+}
+
+.nav{
+	padding: 7px 0;
+	float: right;
+}
+.nav li{
+	float: left;
+	height: 36px;
+	margin-right: 13px;
+	position: relative;
+
+}
+.nav li a{
+	font-size: 16px;
+	color: #666;
+	line-height: 34px;
+	border:1px solid #fff;
+	display: block;
+	background: #fff;
+	padding: 0 14px;
+}
+.nav li a:hover{
+	color: #fc5656
+}
+.yuanqu{
+	height: 36px;
+	border: 1px solid #eee;
+	float: right;
+	border-radius: 5px;
+	width: 138px;
+	font-size: 14px;
+	background: url('../images/arrow.jpg') 120px center no-repeat;
+	margin-top: 5px;
+}
+.yuanqu a{
+	display: block;
+	line-height: 36px;
+	color: #666;
+	background: url('../images/tv.jpg') 10px center no-repeat;
+	padding-left: 30px;
+
+}
+.wuxi{
+	height: 36px;
+	float: right;
+	border-radius: 5px;
+	width: 162px;
+	font-size: 14px;
+	margin-top: 5px;
+}
+.wuxi a{
+	display: block;
+	line-height: 36px;
+	background: url('../images/but2_sy1.png') 12px center no-repeat;
+	padding-left: 30px;
+	color:#108aed;
+}
+.wuxi a:hover{
+	color: #ffffff;
+	background: url('../images/but2_sy2_hover.png') 12px center no-repeat;
+
+}
+.yuanqu a:hover{
+	color: #fc5656
+}
+.nav li.hover:hover a{
+	border:1px solid #eee;
+	border-bottom:1px solid #fff;
+	position: relative;
+	z-index: 2000;
+
+}
+.nav li div{
+	width: 160px;
+	padding: 19px 19px 10px 19px;
+	background: #fff;
+	border:1px solid #eee;
+	position: absolute;
+	top: 35px;
+	left: 0;
+	z-index: 100;
+	display: none;
+}
+.nav li div img{
+	display: block;
+	margin-bottom: 15px;
+}
+.nav li div a{
+	display: block;
+	margin-bottom: 5px;
+	padding: 0;
+}
+.nav li.hover:hover div{
+	display: block;
+}
+.nav li.hover:hover div a{
+	border: 1px solid #fff;
+}
+
+/*登陆后样式*/
+
+.name_member{
+	z-index: 1000;
+	color: #999;
+	font-size: 12px;
+	float: left;
+	line-height: 32px;
+}
+.name_member a{
+	border:1px solid #f1f1f1;
+	display: block;
+	float: right;
+	padding: 0 10px;
+	height: 30px;
+	color:#999;
+	font-weight:600;
+	margin-left:5px;
+}
+.name_member a:hover{
+	background:#fff;
+	padding: 0 10px;
+	border-bottom: 1px solid #fff;
+	height: 31px;
+	z-index: 2000;
+	position: relative;
+}
+.login-down{
+	border:1px solid #f1f1f1;
+	padding: 18px 10px 10px 10px;
+	background: #fff;
+	position: absolute;
+	top: 32px;
+	right: 0;
+	width: 160px;
+	display:none;
+	z-index:2000;
+}
+.login-down a{
+	font-size: 14px;
+	color: #666;
+	line-height: 24px;
+	margin: 0 0 10px 0;
+	display: inline-block;
+	border:0;
+	height: 24px;
+	float:left
+}
+.login-down a:hover{
+	height: 24px;
+	border-bottom: 0;
+}
+
+.login-down em{
+	display: block;
+	width: 55px;
+	height: 52px;
+	margin: 0 auto 15px auto;
+	background:url('../images/login-down.png') no-repeat;
+}
+
+.name_member:hover .login-down{
+	display: block
+}
+
+.slogo{
+	background: url('../images/top_ico.png') 12px center no-repeat !important;
+	height: 40px !important;
+}
+.sname_member{
+	z-index: 1000;
+	color: #ffffff;
+	font-size: 12px;
+	float: left;
+	line-height: 40px;
+	margin-left:44px;
+}
+.sname_member a{
+	display: block;
+	float: right;
+	padding: 0 0;
+	height: 30px;
+	color:#ffffff;
+	font-weight:600;
+	margin-left:5px;
+}
+
+.sname_member a:hover{
+	height: 31px;
+	z-index: 2000;
+	position: relative;
+}
+
+.slogin-down{
+	border:1px solid #f1f1f1;
+	padding: 10px 10px 0px 10px;
+	background: #fff;
+	position: absolute;
+	top: 40px;
+	right: 0;
+	left:0;
+	width: 160px;
+	display:none;
+	z-index:100000;
+	height:110px;
+}
+.slogin-down a{
+	font-size: 13px;
+	color: #666666;
+	line-height: 24px;
+	display: inline-block;
+	border:0;
+	height: 24px;
+	float:left;
+	font-weight:400;
+	margin: 0 0 10px 0;
+}
+.slogin-down a:hover{
+	height: 24px;
+	border-bottom: 0;
+	color:#666666 !important;
+}
+
+
+
+.sname_member:hover .slogin-down{
+	display: block
+}
+.quit {
+	color: #999;
+	float: left;
+	margin-left: 25px;
+	display: block;
+	line-height: 31px;
+	font-size: 12px;
+}
+
+.loginout{
+	display: block;
+	width: 55px;
+	height: 52px;
+	margin: 24px 2px 10px 12px !important;
+	background:url('../images/top_out.png') no-repeat;
+}
+.membercenter{
+	display: block;
+	width: 55px;
+	height: 52px;
+	margin: 5px 2px 10px 10px !important;
+	background:url('../images/top_Man.png') no-repeat !important;
+	float: left;
+}
+
+.swxheight a:hover{
+	color:#ffffff;
+}
+
+.swxheight{
+	height:40px !important;
+	line-height:40px !important;
+}
+.stopbg{
+	background: #333333 !important;
+}

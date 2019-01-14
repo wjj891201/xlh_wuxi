@@ -68,12 +68,6 @@ AdminAsset::register($this);
                         <li><a href="<?= Url::to(['role/list']); ?>"><i class="system"></i><em>角色管理</em></a></li>
                         <li><a href="<?= Url::to(['access/list']); ?>"><i class="page"></i><em>权限管理</em></a></li>
                     </ul>
-                    <ul>
-                        <li><a href="<?= Url::to(['workflow/group-list']); ?>"><i class="backup"></i><em>流程组</em></a></li>       
-                        <li><a href="<?= Url::to(['approve-user/organization-list']); ?>"><i class="order"></i><em>机构管理</em></a></li>
-                        <li><a href="<?= Url::to(['approve-user/list']); ?>"><i class="downloadCat"></i><em>审批员</em></a></li>
-                        <li><a href="<?= Url::to(['area/list']); ?>"><i class="guestbook"></i><em>地区管理</em></a></li>
-                    </ul>
                 </div>
             </div>
 

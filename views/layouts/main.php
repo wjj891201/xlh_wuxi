@@ -1,66 +1,114 @@
 <?php
 
-use app\assets\KjdAsset;
+use app\assets\WxAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-KjdAsset::register($this);
+WxAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title><?= Html::encode($this->title) ?></title>
         <?php $this->head() ?>
     </head>
-
     <body>
         <?php $this->beginBody() ?>
-        <!--header-->
-        <div class="top1">
-            <div class="box1">
-                <div class="logo1">
-                    <a href="../"><img src="<?= $this->params['config']['logo'] ?>" style="margin-top:40px"></a>
+        <div class="wrapper">
+            <div class="top_header swxheight stopbg">
+                <div class="m1200">
+                    <div class="login_state">
+                        <a href="" class="stop_login ">您还未登录，登录</a>
+                        <a href="" class="stop_register ">|&nbsp;&nbsp;注册</a>
+                    </div>
                 </div>
-                <?php if ($this->context->action->id == 'login'): ?>
-                    <p class="header_title">欢迎登录</p>
-                <?php endif; ?>
-                <div class="nav1"></div>
-                <div class="user1_logedin">
-                    <img src="/public/kjd/images/top2.png"/>
-                    <ul>
-                        <a href="<?= Url::to(['member/enterprise-list']) ?>"><li><i class="icon1"></i>会员中心<i class="arrow1"></i></li></a>
-                        <a href="<?= Url::to(['member/center']) ?>"><li><i class="icon2"></i>设置<i class="arrow1"></i></li></a>
-                        <?php if (Yii::$app->session['member']['isLogin'] == 1): ?>
-                            <a href="<?= Url::to(['public/logout']) ?>"><li><i class="icon3"></i>退出登录<i class="arrow1"></i></li></a>
-                        <?php endif; ?>
+            </div>
+            <div class="menu-container">
+                <div class="m1200 smenu-content">
+                    <div class="menu-logo" style="margin-top:-8px">
+                        <a href="../"><img src="<?= $this->params['config']['logo'] ?>"></a>
+                    </div>
+                    <ul class="spmenu-nav clearfix">
+                        <li  class="cs" class="menu-cur" >
+                            <a href="wxjrfw.yirongbang.html">首页</a>
+                        </li>
+                        <li class="more gqrz smenu-cur">
+                            <a href="yrf/home.html">股权融资</a>
+                        </li>                        
+                        <li class="more zqrz smenu-cur">
+                            <a href="yrd/home.html">债权融资</a>
+                        </li>   
+                        <li ><a class=menu-cur href="yrh/home/wuxi_jrly.html">金融路演</a></li>                        
+                        <li>
+                            <a href="yrfh.html">产业招商</a>
+                        </li>
+                        <li><a class=menu-cur href="yrh/home/wuxi_jrzs.html">金融招商</a></li>                    
+                    </ul>
+                    <div class="wuxi">
+                        <a href="" target="_blank">产业金融贷款系统</a>
+                    </div>
+                </div>
+            </div>
+            <div class="wxmenu-container wxmenu-nav-down cone">
+                <div class="m1200 smenu-content">
+                    <ul class="smenu-nav clearfix" style="height: 50%;">
+                        <li>
+                            <a href="yrf/project.html" target="_blank">项目库</a>
+                        </li>
+                        <li>
+                            <a href="yrf/investor.html" target="_blank">投资人</a>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="clear"></div>
-        <!--content-->
-        <div id="content_here">
+            <div class="wxmenu-container wxmenu-nav-down ctwo">
+                <div class="m1200 smenu-content">
+                    <ul class="smenu-nav clearfix" style="height: 50%;">
+                        <li>
+                            <a href="yrd/goods/search.html" target="_blank">找贷款</a>
+                        </li>
+                        <li>
+                            <a href="yrd/projects/index.html" target="_blank">选项目</a>
+                        </li>
+                        <li>
+                            <a href="yrd/tools/diagnostic.html" target="_blank">贷款工具</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <script>
+                $(".spmenu-nav li.gqrz a,.cone").hover(function () {
+                    $('.cone').show();
+                }, function () {
+                    $('.cone').hide();
+                });
+                $(".spmenu-nav li.zqrz a,.ctwo").hover(function () {
+                    $('.ctwo').show();
+                }, function () {
+                    $('.ctwo').hide();
+                });
+            </script>
             <?= $content ?>
         </div>
-        <!--footer-->
-        <div class="footer1 bottom0">
-            <div class="wraper1">
-                主办单位：南昌市科学技术局&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;技术支持：上海信隆行信息科技股份有限公司（一融网）
+        <div class="zi-footer po" style="height:160px">
+            <div class="zi-footer-content" style="width:1200px;height:135px">
+                <ul class="ft-about sft-about" >
+                    <li><a class="spa" href="http://www.jsjrfw.com/" target="_blank">友情链接：江苏省金融服务平台</a></li>
+                    <li><a class="spa" href="http://www.wxjrpt.com/" target="_blank">无锡市金融服务平台</a></li>
+                    <li><a class="spa" href="http://www.jsxishan.gov.cn/" target="_blank">无锡市锡山区人民政府</a></li>
+                </ul>
+                <dl class="friend-link" >
+                    <dd>
+                        <a class="spa">版权所有: 无锡市锡山区人民政府</a>
+                        <a class="spa">技术支持：上海信隆行科技股份有限公司</a>
+                        <a class="spa">如有疑问，请联系我们（工作时间周一至周五9:00-18:00） 客服电话：4006-520-060</a>
+                    </dd>
+                </dl>
             </div>
-        </div> 
-        <script>
-            $(function () {
-                var h = $(window).height();
-                var H = $('.top1').height() + $('.footer1').height();
-                <?php if ($this->context->action->id == 'login'): ?>
-                $("#content_here").css({"min-height": h - H, "background": "#288EF3"});
-                <?php else: ?>
-                $("#content_here").css({"min-height": h - H, "background": "#f6f6f6"});
-                <?php endif; ?>
-            });
-        </script>
+        </div>
         <?php $this->endBody() ?>
     </body>
 </html>
