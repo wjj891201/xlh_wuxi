@@ -368,13 +368,9 @@ a.login_btn:hover{
     line-height: 24px;
     color: #b90000;
     font-size: 12px;
-    padding-left: 30px;
     margin-left: 10px;
-    background:#ffebeb url('../images/error_icon.png') 5px 3px no-repeat;
-    display: none;
     float: left;
     width: 290px;
-    border:1px solid #ee5121;
     height: 24px;
     margin-top: 2px;
 }
@@ -607,7 +603,7 @@ a.login_btn:hover{
     font-size: 14px;
     padding: 0 10px;
     color: #666;
-    width: 96px;
+    width: 90px;
     margin-right: 5px;
     outline: none;
 }
@@ -636,7 +632,7 @@ a.change{
     line-height: 28px;
     float: left;
 }
-a.forget_btn{
+.forget_btn{
     width: 128px;
     height: 35px;
     background: #ee6f15;
@@ -647,6 +643,7 @@ a.forget_btn{
     display: block;
     border-radius: 3px;
     margin: 0 0 0 160px;
+    border: none;
 }
 .forget_password ul li .exclamation{
     margin-top: 0;
