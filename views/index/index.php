@@ -6,7 +6,16 @@ use app\libs\Image;
 use app\models\Advert;
 use app\models\News;
 
-//$this->registerJsFile('@web/public/front/js/jquery.SuperSlide.2.1.2.js', ['depends' => ['app\assets\AppAsset'], 'position' => View::POS_HEAD]);
+$this->registerCssFile('@web/public/wx/css/new_company_credit.css', ['depends' => 'app\assets\WxAsset']);
+$this->registerCssFile('@web/public/wx/css/new_index.css', ['depends' => 'app\assets\WxAsset']);
+$this->registerCssFile('@web/public/wx/css/banner.css', ['depends' => 'app\assets\WxAsset']);
+
+$this->registerJsFile('@web/public/wx/js/jquery.flexslider.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
+$this->registerJsFile('@web/public/wx/js/searchChild.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
+$this->registerJsFile('@web/public/wx/js/js.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
+$this->registerJsFile('@web/public/wx/js/menu.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
+$this->registerJsFile('@web/public/wx/js/banner.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
+$this->registerJsFile('@web/public/wx/js/yrd_service.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
 
 $this->title = $this->params['config']['sitename'];
 $this->params['breadcrumbs'][] = $this->title;
@@ -89,9 +98,9 @@ $this->registerMetaTag(['name' => 'description', 'content' => $this->params['con
                     <a href="" class="more">更多 ></a>
                 </div>
                 <ul class="touList">
-                    <a href="yrf/investor/detail/106.html">
+                    <a href="">
                         <li>
-                            <img src="" width="70"/>
+                            <img src="/public/wx/images/20190107165242.png" width="70"/>
                             <div class="touRight">
                                 <h3>刘恒</h3>
                                 <em>上海日臻资产管理有限公司 | 合伙人(上海)</em>
@@ -102,9 +111,9 @@ $this->registerMetaTag(['name' => 'description', 'content' => $this->params['con
                             </div>
                         </li>
                     </a>
-                    <a href="yrf/investor/detail/1564.html">
-                        <li  class="last"  class="bottom" >
-                            <img src="" width="70" alt="http://wxjrfw.yirongbang.net/uploadfile/yirongfu/user/user_investor/user_img/20190107170154.jpeg">
+                    <a href="">
+                        <li class="last" class="bottom">
+                            <img src="/public/wx/images/20190107165242.png" width="70">
                             <div class="touRight">
                                 <h3>郭建</h3>
                                 <em>上海国际创投 | 总经理(上海)</em>
@@ -115,9 +124,9 @@ $this->registerMetaTag(['name' => 'description', 'content' => $this->params['con
                             </div>
                         </li>
                     </a>
-                    <a href="yrf/investor/detail/1616.html">
-                        <li   >
-                            <img src="" width="70" alt="http://wxjrfw.yirongbang.net/uploadfile/yirongfu/user/user_investor/user_img/20190107170500.png">
+                    <a href="">
+                        <li>
+                            <img src="/public/wx/images/20190107165242.png" width="70">
                             <div class="touRight">
                                 <h3>曾强</h3>
                                 <em>复星集团互联网投资部 | 投资总监(上海)</em>
@@ -129,9 +138,9 @@ $this->registerMetaTag(['name' => 'description', 'content' => $this->params['con
                             </div>
                         </li>
                     </a>
-                    <a href="yrf/investor/detail/2428.html">
-                        <li    class="bottom last">
-                            <img src="" width="70" alt="http://wxjrfw.yirongbang.net/uploadfile/yirongfu/user/user_investor/user_img/20190107170406.jpeg">
+                    <a href="">
+                        <li class="bottom last">
+                            <img src="/public/wx/images/20190107165242.png" width="70">
                             <div class="touRight">
                                 <h3>李群</h3>
                                 <em>汉都鼎坤投资管理有限公司 | 总经理(江苏)</em>
@@ -197,31 +206,27 @@ $this->registerMetaTag(['name' => 'description', 'content' => $this->params['con
             <!--右侧-->
             <div class="floorRight">
                 <div class="neiTitle">
-                    <h3>
-                        我们推荐的贷款产品
-                        <span>更容易获得的贷款</span>
-                    </h3>
-                    <a href="yrd/goods/search.html" class="more">更多 ></a>
+                    <h3>我们推荐的贷款产品<span>更容易获得的贷款</span></h3>
+                    <a href="" class="more">更多 ></a>
                 </div>
                 <div style="overflow: hidden">
                     <div class="daiKuan fl ml25 mt30">
                         <a href="">
-                            <img src="" height="180" width="400">
-                            <div class="daiTitle"></div>
+                            <img src="/public/wx/images/file_15468306121.jpg" height="180" width="400">
+                            <div class="daiTitle">应收账款质押贷款</div>
                         </a>
                     </div>
                     <div class="daiKuan fl ml25 mt30">
                         <a href="">
-                            <img src="" height="180" width="400">
-                            <div class="daiTitle"></div>
+                            <img src="/public/wx/images/file_15468413851.jpg" height="180" width="400">
+                            <div class="daiTitle">新三板快易租</div>
                         </a>
                     </div>
                 </div>
                 <div style="overflow: hidden; border-top:1px solid #eee;" class="mt30">
                     <div class="daiKuan fl">
-
                         <div class="m15">
-                            <h3><a href="yrd/goods/viewࠩd=722.html">税融通（合肥）</a> </h3>
+                            <h3><a href="">税融通（合肥）</a> </h3>
                             <h4>贷款额度：<b>1 万元 - 1000 万元</b></h4>
                             <span>无抵押</span>
                             <span>无担保</span>
@@ -232,13 +237,12 @@ $this->registerMetaTag(['name' => 'description', 'content' => $this->params['con
                                 <li>还款方式：到期本金付息</li>
                                 <li class="tr"><label>审批时间：</label>10日以内</li>
                             </ul>
-                            <a href="yrd/goods/viewࠩd=722.html" class="look">查看详情</a>
+                            <a href="" class="look">查看详情</a>
                         </div>
                     </div>
                     <div class="daiKuan fl">
-
                         <div class="m15">
-                            <h3><a href="yrd/goods/viewࠩd=494.html">平安 生意贷</a> </h3>
+                            <h3><a href="">平安 生意贷</a> </h3>
                             <h4>贷款额度：<b>60 万元以下</b></h4>
                             <ul class="clearfix">
                                 <li>贷款期限：24个月以下</li>
@@ -246,11 +250,10 @@ $this->registerMetaTag(['name' => 'description', 'content' => $this->params['con
                                 <li>还款方式：等额本息</li>
                                 <li class="tr"><label>审批时间：</label>5日以内</li>
                             </ul>
-                            <a href="yrd/goods/viewࠩd=494.html" class="look">查看详情</a>
+                            <a href="" class="look">查看详情</a>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -263,68 +266,78 @@ $this->registerMetaTag(['name' => 'description', 'content' => $this->params['con
         <!--楼层内容-->
         <div class="floorContent clearfix">
             <div class="floorLeft">
-                <a href="yrfh/yrfh.html">
-                    <img src="" width="330">
+                <a href="">
+                    <img src="/public/wx/images/file_1546850620.jpg" width="330">
                 </a>
             </div>
             <div class="floorRight">
                 <div class="neiTitle">
-                    <h3>
-                        推荐孵化器
-                        <span>一站式在线孵化服务</span>
-                    </h3>
-                    <a href="yrfh/incubator.html" class="more">更多 ></a>
+                    <h3>推荐孵化器<span>一站式在线孵化服务</span></h3>
+                    <a href="" class="more">更多 ></a>
                 </div>
                 <ul class="fuhuaList">
                     <li>
-                        <a href="yrfh/incubator/view/113.html">
-                            <img src="">
+                        <a href="">
+                            <img src="/public/wx/images/file_1546843106.jpg">
                             <div class="fuhuaInfo">
                                 <p class="fiTitle">无锡智慧体育产业园</p>
-                                <p class="fiArea"><i class="mapIco"></i>
-                                    江苏 无锡 滨湖区                            </p>
+                                <p class="fiArea">
+                                    <i class="mapIco"></i>
+                                    江苏 无锡 滨湖区
+                                </p>
                                 <p class="fiField">
                                     <span>省级</span>
-                                    智慧体育                                                            </p>
+                                    智慧体育                                                            
+                                </p>
                             </div>
                         </a>
                     </li>
                     <li>
-                        <a href="yrfh/incubator/view/114.html">
-                            <img src="">
+                        <a href="">
+                            <img src="/public/wx/images/file_1546843106.jpg">
                             <div class="fuhuaInfo">
                                 <p class="fiTitle">创星咖啡</p>
-                                <p class="fiArea"><i class="mapIco"></i>
-                                    江苏 无锡 崇安区                            </p>
+                                <p class="fiArea">
+                                    <i class="mapIco"></i>
+                                    江苏 无锡 崇安区                            
+                                </p>
                                 <p class="fiField">
                                     <span>其它</span>
-                                    新一代信息技术                                                            </p>
+                                    新一代信息技术                                                            
+                                </p>
                             </div>
                         </a>
                     </li>
                     <li>
-                        <a href="yrfh/incubator/view/115.html">
-                            <img src="">
+                        <a href="">
+                            <img src="/public/wx/images/file_1546843106.jpg">
                             <div class="fuhuaInfo">
                                 <p class="fiTitle">希沃创咖</p>
-                                <p class="fiArea"><i class="mapIco"></i>
-                                    江苏 无锡 新区                            </p>
+                                <p class="fiArea">
+                                    <i class="mapIco"></i>
+                                    江苏 无锡 新区                            
+                                </p>
                                 <p class="fiField">
                                     <span>其它</span>
-                                    新兴信息产业                                                                高端装备制造业                                                            </p>
+                                    新兴信息产业                
+                                    高端装备制造业                                                            
+                                </p>
                             </div>
                         </a>
                     </li>
                     <li>
-                        <a href="yrfh/incubator/view/116.html">
-                            <img src="">
+                        <a href="">
+                            <img src="/public/wx/images/file_1546843106.jpg">
                             <div class="fuhuaInfo">
                                 <p class="fiTitle">无锡国际科技合作园</p>
-                                <p class="fiArea"><i class="mapIco"></i>
-                                    江苏 无锡 新区                            </p>
+                                <p class="fiArea">
+                                    <i class="mapIco"></i>
+                                    江苏 无锡 新区                            
+                                </p>
                                 <p class="fiField">
                                     <span>其它</span>
-                                    新兴信息产业                                                            </p>
+                                    新兴信息产业                                                            
+                                </p>
                             </div>
                         </a>
                     </li>
@@ -334,27 +347,14 @@ $this->registerMetaTag(['name' => 'description', 'content' => $this->params['con
     </div>
     <!--热点政策-->
     <div class="m1200 hotPoint clearfix floor">
-        <a href="">
-            <img src="" height="60" width="242">
-            <ul>
-                <li>
-                    <a href="yrh/home/policy_detail/965.html" >关于做好2016年度无锡市&ldquo;正版正货&rdquo;承诺推...</a>
-                </li>
-                <li>
-                    <a href="yrh/home/policy_detail/939.html" >无锡市科技发展（技术研发）资金管理实施细则</a>
-                </li>
-                <li>
-                    <a href="yrh/home/policy_detail/923.html" >关于做好取消价格鉴证师注册核准等行政许可...</a>
-                </li>
-                <li>
-                    <a href="yrh/home/policy_detail/901.html" >2016年苏南国家自主创新示范区建设工作要点</a>
-                </li>
-                <li>
-                    <a href="yrh/home/policy_detail/890.html" > 促进科技成果转移转化行动方案</a>
-                </li>
-                <li>
-                    <a href="yrh/home/policy_detail/820.html" >中国银监会 科技部 中国人民银行关于支持...</a>
-                </li>
-            </ul>
+        <img src="/public/wx/images/file_1546419032.png" height="60" width="242">
+        <ul>
+            <li><a href="">关于做好2016年度无锡市&ldquo;正版正货&rdquo;承诺推...</a></li>
+            <li><a href="">无锡市科技发展（技术研发）资金管理实施细则</a></li>
+            <li><a href="">关于做好取消价格鉴证师注册核准等行政许可...</a></li>
+            <li><a href="">2016年苏南国家自主创新示范区建设工作要点</a></li>
+            <li><a href=""> 促进科技成果转移转化行动方案</a></li>
+            <li><a href="">中国银监会 科技部 中国人民银行关于支持...</a></li>
+        </ul>
     </div>
 </div>
