@@ -51,6 +51,7 @@ class Member extends ActiveRecord
                 ['password', 'validatePass', 'on' => 'login'],
                 ['repass', 'required', 'message' => '确认密码不能为空', 'on' => ['changepass', 'seekpass', 'memberadd']],
                 ['repass', 'compare', 'compareAttribute' => 'password', 'message' => '两次密码输入不一致', 'on' => ['changepass', 'seekpass', 'memberadd']],
+                ['user_type', 'safe', 'on' => 'memberadd']
         ];
     }
 

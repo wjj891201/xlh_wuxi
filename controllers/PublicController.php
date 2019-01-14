@@ -16,12 +16,13 @@ class PublicController extends CommonController
         return [
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
-                'backColor' => 0x51ACFF,
+                'backColor' => 0xff6600,
                 'foreColor' => 0xffffff,
                 'height' => 36,
-                'width' => 76,
+                'width' => 101,
                 'minLength' => 4,
-                'maxLength' => 4
+                'maxLength' => 4,
+                'offset' => 4,
             ],
         ];
     }

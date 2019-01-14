@@ -21,8 +21,22 @@ WxAsset::register($this);
             <div class="top_header swxheight stopbg">
                 <div class="m1200">
                     <div class="login_state">
-                        <a href="" class="stop_login">您还未登录，登录</a>
-                        <a href="" class="stop_register">|&nbsp;&nbsp;注册</a>
+                        <?php if (Yii::$app->session['member']['isLogin'] == 1): ?>
+                            <div class="name_member" style="position:relative">欢迎您
+                                <a href="<?= Url::to(['member/center']) ?>"><?= Yii::$app->session['member']['username'] ?></a>
+                                <div class="login-down">
+                                    <em></em>
+                                    <a href="">债权项目</a>
+                                    <a href="">股权项目</a>
+                                    <a href="">产品申请</a>
+                                    <a href="">订单管理</a>
+                                </div>
+                            </div>
+                            <a href="<?= Url::to(['public/logout']) ?>" class="quit">退出</a>
+                        <?php else: ?>
+                            <a href="<?= Url::to(['public/login']) ?>" class="stop_login">您还未登录，登录</a>
+                            <a href="<?= Url::to(['public/signup']) ?>" class="stop_register">|&nbsp;&nbsp;注册</a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
