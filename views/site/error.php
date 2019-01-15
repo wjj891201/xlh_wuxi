@@ -2,16 +2,13 @@
 
 use yii\helpers\Html;
 
-$this->registerCssFile('@web/public/kjd/css/dandelion.css', ['depends' => ['app\assets\KjdAsset']]);
+$this->registerCssFile('@web/public/wx/css/dandelion.css', ['depends' => ['app\assets\WxAsset']]);
 $this->title = $name;
 $this->params['breadcrumbs'][] = $this->title;
 $this->registerMetaTag(['name' => 'keywords', 'content' => '']);
 $this->registerMetaTag(['name' => 'description', 'content' => ''], 'description');
 ?>
 <div class="wrapper">
-    <div class="titleBar" style="background:#3e9fff;">
-        <div class="main1200" style="height:75px"></div>
-    </div>
     <div id="da-wrapper" class="fluid">
         <div id="da-content">
             <div class="da-container">
