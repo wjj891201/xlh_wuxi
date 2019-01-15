@@ -48,6 +48,11 @@ $this->registerJsFile('@web/public/wx/js/tabChange.js', ['depends' => ['app\asse
         <?php
         $form = ActiveForm::begin([
                     'options' => ['id' => 'register_form'],
+                    'fieldConfig' => [
+                        'template' => "<li>{label}{input}{error}</li>",
+                        'labelOptions' => ['class' => false, 'for' => false],
+                        'errorOptions' => ['class' => 'warn'],
+                    ]
         ]);
         ?>
         <div class="register_box">
