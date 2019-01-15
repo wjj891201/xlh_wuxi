@@ -21,25 +21,7 @@ $this->registerCssFile('@web/public/wx/css/member.css', ['depends' => 'app\asset
         <b>修改密码</b>
     </div>
     <div class="container_25 clearfix member_box">
-        <!--会员中心左侧导航 start-->
-        <div class="grid_5 member_Nav alpha">
-            <h3>会员中心</h3>
-            <dl>
-                <dt class="message_icon">信息管理</dt>
-                <dd>
-                    <a href="">账号信息</a>
-                    <a href="<?= Url::to(['member/psw']) ?>">修改密码</a>
-                </dd>
-            </dl>    
-            <dl>
-                <dt class="money_icon">我的融资</dt>
-                <dd>
-                    <a href="">债权融资项目</a>
-                    <a href="">股权融资项目</a>
-                </dd>
-            </dl>    
-        </div>
-        <!--会员中心左侧导航 end-->    		
+        <?= $this->render('../layouts/member_left.php'); ?>		
         <!--右侧-->
         <div class="member_right grid_19 omega password_box">
             <div class="password_change">

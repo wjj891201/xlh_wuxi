@@ -134,7 +134,7 @@ a.submit_equity{
 	width: 85px;
 	display: block;
 	border-radius: 3px;
-	background: #ee6f15 url('../styImg/member/submmit_icon.png') 5px 5px no-repeat;
+	background: #ee6f15 url('../images/submmit_icon.png') 5px 5px no-repeat;
 	line-height: 32px;
 	color: #fff;
 	font-size: 12px;
@@ -205,7 +205,7 @@ a.search_btn{
 	height: 39px;
 	padding-top: 5px;
 	width: 145px;
-	background: url('../styImg/member/member_tabhd_bg.jpg') no-repeat;
+	background: url('../images/member_tabhd_bg.jpg') no-repeat;
 	font-size: 14px;
 	color: #ffffff;
 	text-align: center;
@@ -217,15 +217,15 @@ a.search_btn{
 	width: 7px;
 	height: 7px;
 	display: inline-block;
-	background: url('../styImg/member/yuan.png') no-repeat;
+	background: url('../images/yuan.png') no-repeat;
 	margin-right: 10px;
 }
 .member_tabhd ul li.cur{
-	background: url('../styImg/member/member_tabhd_bg_cur.jpg') no-repeat;
+	background: url('../images/member_tabhd_bg_cur.jpg') no-repeat;
 	height: 61px;
 }
 .member_tabhd ul li:hover{
-	background: url('../styImg/member/member_tabhd_bg_cur.jpg') no-repeat;
+	background: url('../images/member_tabhd_bg_cur.jpg') no-repeat;
 	height: 61px;
 }
 
@@ -269,7 +269,7 @@ a.search_btn{
 	color: #ff372e
 }
 .member_tabbd table td a.return_btn{
-	background: url('../styImg/member/magnifier.jpg') center right no-repeat;
+	background: url('../images/magnifier.jpg') center right no-repeat;
 	padding-right: 15px;
 }
 .member_tabbd table td a.edit_btn{
@@ -352,15 +352,15 @@ a.search_btn{
 	margin-right: 10px;
 }
 .member_icon{
-	background: url('../styImg/member/media_icon01.png') no-repeat;
+	background: url('../images/media_icon01.png') no-repeat;
 	padding-left: 25px;
 }
 .member_icon2{
-	background: url('../styImg/member/media_icon02.png') no-repeat;
+	background: url('../images/media_icon02.png') no-repeat;
 	padding-left: 25px;
 }
 .member_icon3{
-	background: url('../styImg/member/map_icon.png') no-repeat;
+	background: url('../images/map_icon.png') no-repeat;
 	padding-left: 15px;
 }
 .state{
@@ -377,7 +377,7 @@ a.search_btn{
 	height: 29px;
 	border-radius: 3px;
 	color: #fff;
-	background: #ef5b51 url('../styImg/member/shenhe_icon.png') 10px 9px no-repeat;
+	background: #ef5b51 url('../images/shenhe_icon.png') 10px 9px no-repeat;
 	line-height: 29px;
 	padding-left: 20px;
 	margin-bottom: 10px;
@@ -441,11 +441,11 @@ a.loan_guide{
 	display: block;
 	width: 98px;
 	height: 21px;
-	background: url('../styImg/member/loan_guide.png') no-repeat;
+	background: url('../images/loan_guide.png') no-repeat;
 	float: right;
 }
 .member_tabbd table th.downArrow_icon{
-	background:#ebebeb url('../styImg/member/downArrow_icon.png') 85% center no-repeat;
+	background:#ebebeb url('../images/downArrow_icon.png') 85% center no-repeat;
 }
 
 .member_tabbd table td img{
@@ -470,7 +470,7 @@ a.loan_guide{
 	width: 18px;
 	height: 9px;
 	float: right;
-	background: url('../styImg/member/arrow.png') no-repeat;
+	background: url('../images/arrow.png') no-repeat;
 	margin-top: -8px;
 	margin-right: 30px;
 }
@@ -501,7 +501,7 @@ a.loan_guide{
 	width: 19px;
 	height: 18px;
 	display: block;
-	background: url('../styImg/member/close_btn.jpg') no-repeat;
+	background: url('../images/close_btn.jpg') no-repeat;
 	margin-bottom: 10px;
 	margin-right: 10px;
 	margin-top: 7px;
@@ -713,7 +713,7 @@ a.loan_guide{
 }
 
 .pass_popup{
-	background: url('../styImg/member/pass_popup.png') repeat;
+	background: url('../images/pass_popup.png') repeat;
 	width: 353px;
 	height: 140px;
 	position: fixed;
@@ -799,7 +799,7 @@ a.loan_guide{
 	padding-left: 45px;
 }
 .one_title{
-	background: url('../styImg/member/company_icon.png') 10px 0 no-repeat;
+	background: url('../images/company_icon.png') 10px 0 no-repeat;
 }
 .message_label_list{
 	padding: 10px 0 20px 0;
@@ -872,7 +872,7 @@ a.loan_guide{
 }
 
 .two_title{
-	background: url('../styImg/member/project_icon.png') 10px 0 no-repeat;
+	background: url('../images/project_icon.png') 10px 0 no-repeat;
 }
 
 .danbao_box{
@@ -904,17 +904,17 @@ a.loan_guide{
 }
 
 .three_title{
-	background: url('../styImg/member/financing_icon.png') 10px 0 no-repeat;
+	background: url('../images/financing_icon.png') 10px 0 no-repeat;
 }
 
 .four_title{
-	background: url('../styImg/member/four_icon.png') 10px 0 no-repeat;
+	background: url('../images/four_icon.png') 10px 0 no-repeat;
 }
 .five_title{
-	background: url('../styImg/member/five_icon.png') 10px 0 no-repeat;
+	background: url('../images/five_icon.png') 10px 0 no-repeat;
 }
 .six_title{
-	background: url('../styImg/member/six_icon.png') 10px 0 no-repeat;
+	background: url('../images/six_icon.png') 10px 0 no-repeat;
 }
 .six_title span{
 	font-size: 12px;
@@ -955,7 +955,7 @@ a.loan_guide{
 	margin-left:3px;
 }
 a.reload_btn{
-	background: #ee6f15 url('../styImg/member/reload_icon.png') 40px center no-repeat;
+	background: #ee6f15 url('../images/reload_icon.png') 40px center no-repeat;
 	color: #fff;
 	font-size: 12px;
 	padding: 3px 20px 3px 15px;
@@ -967,13 +967,13 @@ a.delete_update{
 	height: 11px;
 	width: 11px;
 	display: inline-block;
-	background: url('../styImg/member/delete_update.jpg') no-repeat;
+	background: url('../images/delete_update.jpg') no-repeat;
 	float: right;
 	margin-top: 4px;
 	margin-left: 3px;
 }
 a.update_btn{
-	background: #ee6f15 url('../styImg/member/update_icon02.png') 40px center no-repeat;
+	background: #ee6f15 url('../images/update_icon02.png') 40px center no-repeat;
 	color: #fff;
 	font-size: 12px;
 	padding: 3px 20px 3px 15px;
@@ -1362,7 +1362,7 @@ a.download_btn{
 	border-radius: 3px;
 	color: #666;
 	font-size: 12px;
-	background: #dddddd url('../styImg/member/download_icon.jpg') 15px 9px no-repeat;
+	background: #dddddd url('../images/download_icon.jpg') 15px 9px no-repeat;
 	line-height: 28px;
 	display: block;
 	margin-left: 202px;
@@ -1371,7 +1371,7 @@ a.download_btn{
 	margin-top: 5px;
 }
 a.download_btn:hover{
-	background: #efefef url('../styImg/member/download_icon_hover.png') 15px 9px no-repeat;
+	background: #efefef url('../images/download_icon_hover.png') 15px 9px no-repeat;
 	border: 1px solid #e46a07;
 	color: #e46a07;
 }
@@ -1382,14 +1382,14 @@ a.update_button{
 	border-radius: 3px;
 	color: #666;
 	font-size: 12px;
-	background: #faedac url('../styImg/member/update_icon.png') 15px 9px no-repeat;
+	background: #faedac url('../images/update_icon.png') 15px 9px no-repeat;
 	line-height: 28px;
 	display: block;
 	margin-left: 202px;
 	padding-left: 35px;
 }
 a.update_button:hover{
-	background: #e9db92 url('../styImg/member/update_icon_hover.png') 15px 9px no-repeat;
+	background: #e9db92 url('../images/update_icon_hover.png') 15px 9px no-repeat;
 	border: 1px solid #e46a07;
 	color: #e46a07;
 }
@@ -1404,13 +1404,13 @@ a.update_button:hover{
 }
 .update_raea ul li a.update_project{
 	display: block;
-	background: url('../styImg/member/update_bg.png') no-repeat;
+	background: url('../images/update_bg.png') no-repeat;
 	width: 91px;
 	height: 91px;
 	display: none;
 }
 .update_raea ul li a.update_project:hover{
-	background: url('../styImg/member/update_bg_hover.png') no-repeat;
+	background: url('../images/update_bg_hover.png') no-repeat;
 }
 .update_raea ul{
 	padding-left: 60px;
@@ -1459,7 +1459,7 @@ a.update_button:hover{
 	position: absolute;
 	top: 5px;
 	right: 5px;
-	background: url('../styImg/member/close_update.png') no-repeat;
+	background: url('../images/close_update.png') no-repeat;
 }
 .update_show span{
 	font-size: 12px;
@@ -1559,7 +1559,7 @@ a.update_button2{
 	border-radius: 3px;
 	color: #666;
 	font-size: 12px;
-	background: #faedac url('../styImg/member/update_icon.png') 15px 9px no-repeat;
+	background: #faedac url('../images/update_icon.png') 15px 9px no-repeat;
 	line-height: 28px;
 	display: block;
 	margin-left: 202px;
@@ -1605,7 +1605,7 @@ a.close_look{
 	display: block;
 	width: 20px;
 	height: 20px;
-	background: url('../styImg/member/close_detail.jpg') no-repeat;
+	background: url('../images/close_detail.jpg') no-repeat;
 }
 .look_popup ul{
 	padding-top: 15px;
@@ -1633,7 +1633,7 @@ a.submit_daikuan_btn{
 	height: 32px;
 	color: #fff;
 	font-size: 12px;
-	background: #ee6f15 url('../styImg/member/submit_daikuan_icon.png') 7px 7px no-repeat;
+	background: #ee6f15 url('../images/submit_daikuan_icon.png') 7px 7px no-repeat;
 	padding-left: 33px;
 	line-height: 32px;
 	border-radius: 5px;
@@ -1705,7 +1705,7 @@ a.download_icon{
 	width: 55px;
 	height: 22px;
 	border: 1px solid #de630a;
-	background: #ef7013 url('../styImg/member/download_icon_02.png') 13px 7px no-repeat;
+	background: #ef7013 url('../images/download_icon_02.png') 13px 7px no-repeat;
 	color: #fff;
 	font-size: 12px;
 	border-radius: 5px;
@@ -1750,7 +1750,7 @@ a.download_icon{
     width: 14px;
     height: 12px;
     margin-top: -2px;
-    background: url("../styImg/member/update_icon.png") no-repeat;
+    background: url("../images/update_icon.png") no-repeat;
 }
 
 .upload input[type="file"] {
@@ -1767,7 +1767,7 @@ a.download_icon{
 .upload2 label{
 	width: 91px;
 	height: 91px;
-	background: url('../styImg/member/update_bg.png') no-repeat;
+	background: url('../images/update_bg.png') no-repeat;
 	display: block;
 	cursor:pointer
 }
@@ -1779,7 +1779,7 @@ a.download_icon{
 	padding-left: 30px;
 	padding-right: 10px;
 	margin-left: 10px;
-	background:#ffebeb url('../styImg/member/error_icon.png') 5px 3px no-repeat; /*8-20 add*/
+	background:#ffebeb url('../images/error_icon.png') 5px 3px no-repeat; /*8-20 add*/
 	display: none;
 	float: left;
 	border:1px solid #ee5121;
