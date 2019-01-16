@@ -8,243 +8,239 @@
 
 
 .dai_nav{
-	height: 36px;
-	margin-top: 25px;
-	margin-bottom: 30px;
+    height: 36px;
+    margin-top: 25px;
+    margin-bottom: 30px;
 }
 .dai_nav li{
-	float: left;
-	height: 36px;
-	width: 25%;
+    float: left;
+    height: 36px;
+    width: 25%;
 }
 .dai_nav li a{
-	display: block;
-	border-bottom: 2px solid #fff;
-	height: 34px;
-	line-height: 34px;
-	font-size:16px;
-	color: #626262;
-	font-weight: bold;
-	text-align: center;
+    display: block;
+    border-bottom: 2px solid #fff;
+    height: 34px;
+    line-height: 34px;
+    font-size:16px;
+    color: #626262;
+    font-weight: bold;
+    text-align: center;
 }
 .dai_nav li a.cur{
-	border-bottom: 2px solid #ee6f15;
-	color: #ee6f15
+    border-bottom: 2px solid #ee6f15;
+    color: #ee6f15
 }
 
 .examine_content2 li{
-	border:0;
-	border-bottom: 1px solid #eae8e8;
+    border:0;
+    border-bottom: 1px solid #eae8e8;
 }
 
 .p_category_new{
-	display: inline-block;
-	font-size: 12px;
-	color: #fff;
-	background: #96d3f3;
-	padding: 0 5px;
-	margin: 0 5px;
-	height: 16px;
-	line-height: 16px;
+    display: inline-block;
+    font-size: 12px;
+    color: #fff;
+    background: #96d3f3;
+    padding: 0 5px;
+    margin: 0 5px;
+    height: 16px;
+    line-height: 16px;
 }
 
 .p_label_new span{
-	border:1px solid #fba496;
-	padding-right: 10px;
-	color: #f06852;
-	padding-left: 28px;
+    border:1px solid #fba496;
+    padding-right: 10px;
+    color: #f06852;
+    padding-left: 28px;
 }
 
 .p_label_new .industry_icon{
-	background: url('../images/dai_industry.png') 10px 4px no-repeat;
+    background: url('../images/dai_industry.png') 10px 4px no-repeat;
 }
 .p_label_new .time_icon{
-	background: url('../images/dai_time.png') 10px 4px no-repeat;
+    background: url('../images/dai_time.png') 10px 4px no-repeat;
 }
 .p_label_new .map_icon{
-	background: url('../images/dai_map.png') 10px 4px no-repeat;
+    background: url('../images/dai_map.png') 10px 4px no-repeat;
 }
 
 .interview_success{
-	display: inline-block;
-	height: 24px;
-	background: #ee6f15;
-	padding: 0 8px;
-	font-size: 12px;
-	color: #fff;
-	line-height: 25px;
-	border-radius: 3px;
+    display: inline-block;
+    height: 24px;
+    background: #ee6f15;
+    padding: 0 8px;
+    font-size: 12px;
+    color: #fff;
+    line-height: 25px;
+    border-radius: 3px;
 }
 
 .stop_btn{
-	display: inline-block;
-	height: 22px;
-	border:1px solid #939393;
-	line-height: 22px;
-	font-size: 12px;
-	color: #666;
-	background: #efefef;
-	border-radius: 3px;
-	padding: 0 18px;
+    display: inline-block;
+    height: 22px;
+    border:1px solid #939393;
+    line-height: 22px;
+    font-size: 12px;
+    color: #666;
+    background: #efefef;
+    border-radius: 3px;
+    padding: 0 18px;
 }
 
 .downloadBtn{
-	width: 70px;
-	height: 22px;
-	background: #ee6f15 url('../images/download_icon_02.png') 58px 6px no-repeat;
-	color: #fff;
-	font-size: 12px;
-	line-height: 22px;
-	display: inline-block;
-	border-radius: 3px;
-	padding-left: 5px;
-	text-align: left;/*8-21*/
+    width: 70px;
+    height: 22px;
+    background: #ee6f15 url('../images/download_icon_02.png') 58px 6px no-repeat;
+    color: #fff;
+    font-size: 12px;
+    line-height: 22px;
+    display: inline-block;
+    border-radius: 3px;
+    padding-left: 5px;
+    text-align: left;/*8-21*/
 }
 
 .examine_title2{
-	background: #f7f7f7
+    background: #f7f7f7
 }
 .examine_title2 li{
-	color: #333;
+    color: #333;
 }
 
 .daitou{
-	font-size: 12px;
-	color: #626262;
-	line-height: 24px;
-	height: 24px;
+    font-size: 12px;
+    color: #626262;
+    line-height: 24px;
+    height: 24px;
 }
 .daitou a{
-	color: #57afdd
+    color: #57afdd
 }
 
 .examine_content3 li .investor_list li p{
-	width: 250px;
+    width: 250px;
 }
 
 .examine_content3 li .investor_list li .spred_line{
-	margin-left: 20px;
+    margin-left: 20px;
 }
 
 .examine_content3 li .investor_list li p.investor_state{
-	float: right;
-	text-align: center;
+    float: right;
+    text-align: center;
 }
 .examine_content3 li .investor_list li p.investor_success{
-	float: right;
-	text-align: center;
+    float: right;
+    text-align: center;
 }
 
 
 .dai_tou_list li label{
-	width: 100px;
+    width: 100px;
 }
 .dai_tou_list li p.input_tip{
-	line-height: 33px;
+    line-height: 33px;
 }
 .dai_tou_list li  select.huji{
-	width: 118px;
+    width: 118px;
 }
 .dai_tou_list li em{
-	margin-left: 100px;
+    margin-left: 100px;
 }
 .message_label_list li label.radio_btn{
-	width: 80px;
-	text-align: left;
+    width: 80px;
+    text-align: left;
 }
 .message_label_list li label.radio_btn input{
-	width: auto;
+    width: auto;
 }
 
 .message_label_list li label.radio_btn2{
-	width: 180px;
-	text-align: left;
+    width: 180px;
+    text-align: left;
 }
 
 .message_label_list li input.w100{
-	width: 100px;
+    width: 100px;
 }
 
 h3.zhai_title{
-	border-bottom: 0;
-	float: left;
+    border-bottom: 0;
+    float: left;
 }
 
 .fenlei_nav{
-	height: 32px;
-	border-bottom: 1px solid #eae8e8;
-	margin: 10px 0 30px 0;
-	clear: both;
+    height: 32px;
+    border-bottom: 1px solid #eae8e8;
+    margin: 10px 0 30px 0;
+    clear: both;
 }
 .fenlei_nav ul{
-	float: left;
-	height: 32px;
-	border-left:1px solid #eae8e8;
+    float: left;
+    height: 32px;
+    border-left:1px solid #eae8e8;
 }
 .fenlei_nav ul li{
-	height: 30px;
-	border:1px solid #eae8e8;
-	border-left:1px solid #fff;
-	border-bottom:1px solid #fff;
-	background: #fff;
-	float: left;
+    height: 30px;
+    border:1px solid #eae8e8;
+    border-left:1px solid #fff;
+    border-bottom:1px solid #fff;
+    background: #fff;
+    float: left;
 }
 .fenlei_nav ul li a{
-	display: block;
-	font-size: 14px;
-	color: #adadad;
-	line-height: 30px;
-	padding: 0 20px;
+    display: block;
+    font-size: 14px;
+    color: #adadad;
+    line-height: 30px;
+    padding: 0 20px;
 }
 .fenlei_nav ul li.cur{
-	border-top:2px solid #ee6f15;
+    border-top:2px solid #ee6f15;
 }
 .fenlei_nav ul li.cur a{
-	line-height: 29px;
+    line-height: 29px;
 }
 
 .fenlei_nav p{
-	line-height: 38px;
-	font-size: 12px;
-	color: #adadad;
-	float:right;
+    line-height: 38px;
+    font-size: 12px;
+    color: #adadad;
+    float:right;
 }
 
 .dai_tou_recommend{
-	float: right;
-	height: 42px;
-	line-height: 42px;
-	font-size: 14px;
-	color: #666;
+    float: right;
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    color: #666;
 }
 .dai_tou_recommend a{
-	color: #57afdd
+    color: #57afdd
 }
 
 .xindai{
-	background:#f7ede7;
-	margin-bottom:30px;
+    background:#f7ede7;
+    margin-bottom:30px;
 }
 
 
 .exclamation{
-	line-height: 30px;
-	color: #b90000;
-	font-size: 12px;
-	padding-left: 30px;
-	margin-left: 10px;
-	background:#ffebeb url('../images/error_icon.png') 5px center no-repeat; /*8-20 add*/
-	display: none;
-	float: left;
-	border:1px solid #ee5121;
-	height: 30px;
-	margin-top: 2px;
-	width: auto;
-	padding-right: 10px;
+    line-height: 30px;
+    color: #EE5121;
+    font-size: 12px;
+    margin-left: 10px;
+    float: left;
+    height: 30px;
+    margin-top: 2px;
+    width: auto;
+    padding-right: 10px;
 }
 
 .message_label_list li p.exclamation{
-	line-height: 30px;
+    line-height: 30px;
 }
 
 /**
@@ -256,241 +252,225 @@ h3.zhai_title{
 
 
 .dai_nav{
-	height: 36px;
-	margin-top: 25px;
-	margin-bottom: 30px;
+    height: 36px;
+    margin-top: 25px;
+    margin-bottom: 30px;
 }
 .dai_nav li{
-	float: left;
-	height: 36px;
-	width: 25%;
+    float: left;
+    height: 36px;
+    width: 25%;
 }
 .dai_nav li a{
-	display: block;
-	border-bottom: 2px solid #fff;
-	height: 34px;
-	line-height: 34px;
-	font-size:16px;
-	color: #626262;
-	font-weight: bold;
-	text-align: center;
+    display: block;
+    border-bottom: 2px solid #fff;
+    height: 34px;
+    line-height: 34px;
+    font-size:16px;
+    color: #626262;
+    font-weight: bold;
+    text-align: center;
 }
 .dai_nav li a.cur{
-	border-bottom: 2px solid #ee6f15;
-	color: #ee6f15
+    border-bottom: 2px solid #ee6f15;
+    color: #ee6f15
 }
 
 .examine_content2 li{
-	border:0;
-	border-bottom: 1px solid #eae8e8;
+    border:0;
+    border-bottom: 1px solid #eae8e8;
 }
 
 .p_category_new{
-	display: inline-block;
-	font-size: 12px;
-	color: #fff;
-	background: #96d3f3;
-	padding: 0 5px;
-	margin: 0 5px;
-	height: 16px;
-	line-height: 16px;
+    display: inline-block;
+    font-size: 12px;
+    color: #fff;
+    background: #96d3f3;
+    padding: 0 5px;
+    margin: 0 5px;
+    height: 16px;
+    line-height: 16px;
 }
 
 .p_label_new span{
-	border:1px solid #fba496;
-	padding-right: 10px;
-	color: #f06852;
-	padding-left: 28px;
+    border:1px solid #fba496;
+    padding-right: 10px;
+    color: #f06852;
+    padding-left: 28px;
 }
 
 .p_label_new .industry_icon{
-	background: url('../images/dai_industry.png') 10px 4px no-repeat;
+    background: url('../images/dai_industry.png') 10px 4px no-repeat;
 }
 .p_label_new .time_icon{
-	background: url('../images/dai_time.png') 10px 4px no-repeat;
+    background: url('../images/dai_time.png') 10px 4px no-repeat;
 }
 .p_label_new .map_icon{
-	background: url('../images/dai_map.png') 10px 4px no-repeat;
+    background: url('../images/dai_map.png') 10px 4px no-repeat;
 }
 
 .interview_success{
-	display: inline-block;
-	height: 24px;
-	background: #ee6f15;
-	padding: 0 8px;
-	font-size: 12px;
-	color: #fff;
-	line-height: 25px;
-	border-radius: 3px;
+    display: inline-block;
+    height: 24px;
+    background: #ee6f15;
+    padding: 0 8px;
+    font-size: 12px;
+    color: #fff;
+    line-height: 25px;
+    border-radius: 3px;
 }
 
 .stop_btn{
-	display: inline-block;
-	height: 22px;
-	border:1px solid #939393;
-	line-height: 22px;
-	font-size: 12px;
-	color: #666;
-	background: #efefef;
-	border-radius: 3px;
-	padding: 0 18px;
+    display: inline-block;
+    height: 22px;
+    border:1px solid #939393;
+    line-height: 22px;
+    font-size: 12px;
+    color: #666;
+    background: #efefef;
+    border-radius: 3px;
+    padding: 0 18px;
 }
 
 .downloadBtn{
-	width: 70px;
-	height: 22px;
-	background: #ee6f15 url('../images/download_icon_02.png') 58px 6px no-repeat;
-	color: #fff;
-	font-size: 12px;
-	line-height: 22px;
-	display: inline-block;
-	border-radius: 3px;
-	padding-left: 5px;
-	text-align: left;/*8-21*/
+    width: 70px;
+    height: 22px;
+    background: #ee6f15 url('../images/download_icon_02.png') 58px 6px no-repeat;
+    color: #fff;
+    font-size: 12px;
+    line-height: 22px;
+    display: inline-block;
+    border-radius: 3px;
+    padding-left: 5px;
+    text-align: left;/*8-21*/
 }
 
 .examine_title2{
-	background: #f7f7f7
+    background: #f7f7f7
 }
 .examine_title2 li{
-	color: #333;
+    color: #333;
 }
 
 .daitou{
-	font-size: 12px;
-	color: #626262;
-	line-height: 24px;
-	height: 24px;
+    font-size: 12px;
+    color: #626262;
+    line-height: 24px;
+    height: 24px;
 }
 .daitou a{
-	color: #57afdd
+    color: #57afdd
 }
 
 .examine_content3 li .investor_list li p{
-	width: 250px;
+    width: 250px;
 }
 
 .examine_content3 li .investor_list li .spred_line{
-	margin-left: 20px;
+    margin-left: 20px;
 }
 
 .examine_content3 li .investor_list li p.investor_state{
-	float: right;
-	text-align: center;
+    float: right;
+    text-align: center;
 }
 .examine_content3 li .investor_list li p.investor_success{
-	float: right;
-	text-align: center;
+    float: right;
+    text-align: center;
 }
 
 
 .dai_tou_list li label{
-	width: 100px;
+    width: 100px;
 }
 .dai_tou_list li p.input_tip{
-	line-height: 33px;
+    line-height: 33px;
 }
 .dai_tou_list li  select.huji{
-	width: 118px;
+    width: 118px;
 }
 .dai_tou_list li em{
-	margin-left: 100px;
+    margin-left: 100px;
 }
 .message_label_list li label.radio_btn{
-	width: 80px;
-	text-align: left;
+    width: 80px;
+    text-align: left;
 }
 .message_label_list li label.radio_btn input{
-	width: auto;
+    width: auto;
 }
 
 .message_label_list li label.radio_btn2{
-	width: 180px;
-	text-align: left;
+    width: 180px;
+    text-align: left;
 }
 
 .message_label_list li input.w100{
-	width: 100px;
+    width: 100px;
 }
 
 h3.zhai_title{
-	border-bottom: 0;
-	float: left;
+    border-bottom: 0;
+    float: left;
 }
 
 .fenlei_nav{
-	height: 32px;
-	border-bottom: 1px solid #eae8e8;
-	margin: 10px 0 30px 0;
-	clear: both;
+    height: 32px;
+    border-bottom: 1px solid #eae8e8;
+    margin: 10px 0 30px 0;
+    clear: both;
 }
 .fenlei_nav ul{
-	float: left;
-	height: 32px;
-	border-left:1px solid #eae8e8;
+    float: left;
+    height: 32px;
+    border-left:1px solid #eae8e8;
 }
 .fenlei_nav ul li{
-	height: 30px;
-	border:1px solid #eae8e8;
-	border-left:1px solid #fff;
-	border-bottom:1px solid #fff;
-	background: #fff;
-	float: left;
+    height: 30px;
+    border:1px solid #eae8e8;
+    border-left:1px solid #fff;
+    border-bottom:1px solid #fff;
+    background: #fff;
+    float: left;
 }
 .fenlei_nav ul li a{
-	display: block;
-	font-size: 14px;
-	color: #adadad;
-	line-height: 30px;
-	padding: 0 20px;
+    display: block;
+    font-size: 14px;
+    color: #adadad;
+    line-height: 30px;
+    padding: 0 20px;
 }
 .fenlei_nav ul li.cur{
-	border-top:2px solid #ee6f15;
+    border-top:2px solid #ee6f15;
 }
 .fenlei_nav ul li.cur a{
-	line-height: 29px;
+    line-height: 29px;
 }
 
 .fenlei_nav p{
-	line-height: 38px;
-	font-size: 12px;
-	color: #adadad;
-	float:right;
+    line-height: 38px;
+    font-size: 12px;
+    color: #adadad;
+    float:right;
 }
 
 .dai_tou_recommend{
-	float: right;
-	height: 42px;
-	line-height: 42px;
-	font-size: 14px;
-	color: #666;
+    float: right;
+    height: 42px;
+    line-height: 42px;
+    font-size: 14px;
+    color: #666;
 }
 .dai_tou_recommend a{
-	color: #57afdd
+    color: #57afdd
 }
 
 .xindai{
-	background:#f7ede7;
-	margin-bottom:30px;
-}
-
-
-.exclamation{
-	line-height: 30px;
-	color: #b90000;
-	font-size: 12px;
-	padding-left: 30px;
-	margin-left: 10px;
-	background:#ffebeb url('../images/error_icon.png') 5px center no-repeat; /*8-20 add*/
-	display: none;
-	float: left;
-	border:1px solid #ee5121;
-	height: 30px;
-	margin-top: 2px;
-	width: auto;
-	padding-right: 10px;
+    background:#f7ede7;
+    margin-bottom:30px;
 }
 
 .message_label_list li p.exclamation{
-	line-height: 30px;
+    line-height: 30px;
+    color: #EE5121;
 }

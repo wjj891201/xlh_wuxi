@@ -2,6 +2,7 @@
 
 use yii\bootstrap\ActiveForm;
 use yii\web\View;
+use yii\helpers\Html;
 use yii\helpers\Url;
 
 $this->title = '添加债权融资项目';
@@ -14,6 +15,8 @@ $this->registerCssFile('@web/public/wx/css/normalize.css', ['depends' => 'app\as
 $this->registerCssFile('@web/public/wx/css/member.css', ['depends' => 'app\assets\WxAsset']);
 $this->registerCssFile('@web/public/wx/css/dai_member.css', ['depends' => 'app\assets\WxAsset']);
 
+$this->registerJsFile('@web/public/wx/js/layer/layer.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
+$this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
 $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_END]);
 ?>
 <div style="border-bottom:2px solid #f4c11e;"></div>
@@ -57,9 +60,9 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
                         </li>
                         <li>
                             <label><i>*</i>担保方式：</label>
-                            <?= $form->field($model, 'guarantee_bid', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($guarantee_bid, ['class' => 'danbao w-select', 'id' => 'guarantee_bid'])->label(false); ?>
-                            <?= $form->field($model, 'guarantee_mid', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($guarantee_mid, ['class' => 'danbao w-select', 'id' => 'guarantee_mid'])->label(false); ?>
-                            <?= $form->field($model, 'guarantee_sid', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($guarantee_sid, ['class' => 'danbao w-select', 'id' => 'guarantee_sid'])->label(false); ?>
+                            <?= $form->field($model, 'guarantee_bid', ['errorOptions' => ['class' => 'exclamation', 'style' => 'padding:0;margin:0;']])->dropDownList($guarantee_bid, ['class' => 'danbao w-select', 'id' => 'guarantee_bid'])->label(false); ?>
+                            <?= $form->field($model, 'guarantee_mid', ['errorOptions' => ['class' => 'exclamation', 'style' => 'padding:0;margin:0;']])->dropDownList($guarantee_mid, ['class' => 'danbao w-select', 'id' => 'guarantee_mid'])->label(false); ?>
+                            <?= $form->field($model, 'guarantee_sid', ['errorOptions' => ['class' => 'exclamation', 'style' => 'padding:0;margin:0;']])->dropDownList($guarantee_sid, ['class' => 'danbao w-select', 'id' => 'guarantee_sid'])->label(false); ?>
                         </li>
                         <li>
                             <label><i>*</i>估值：</label>
@@ -82,7 +85,7 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
                     <ul class="message_label_list clearfix dai_tou_list">
                         <li>
                             <label><i>*</i>成立时间：</label>
-                            <?= $form->field($model, 'company_created', ['template' => "{input}{error}", 'errorOptions' => ['class' => 'exclamation']])->textInput(['class' => 'w145'])->label(false); ?>
+                            <?= $form->field($model, 'company_created', ['template' => "{input}{error}", 'errorOptions' => ['class' => 'exclamation']])->textInput(['id' => 'company_created', 'class' => 'w145'])->label(false); ?>
                         </li>
                         <li>
                             <label><i>*</i>企业名称：</label>
@@ -90,9 +93,9 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
                         </li>
                         <li style="height:auto">
                             <label><i>*</i>公司地址：</label>
-                            <?= $form->field($model, 'company_region_bid', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($region_bid, ['class' => 'danbao', 'id' => 'company_region_bid'])->label(false); ?>
-                            <?= $form->field($model, 'company_region_mid', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($region_mid, ['class' => 'danbao', 'id' => 'company_region_mid'])->label(false); ?>
-                            <?= $form->field($model, 'company_region_sid', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($region_sid, ['class' => 'danbao', 'id' => 'company_region_sid'])->label(false); ?>
+                            <?= $form->field($model, 'company_region_bid', ['errorOptions' => ['class' => 'exclamation', 'style' => 'padding:0;margin:0;']])->dropDownList($region_bid, ['class' => 'danbao', 'id' => 'company_region_bid'])->label(false); ?>
+                            <?= $form->field($model, 'company_region_mid', ['errorOptions' => ['class' => 'exclamation', 'style' => 'padding:0;margin:0;']])->dropDownList($region_mid, ['class' => 'danbao', 'id' => 'company_region_mid'])->label(false); ?>
+                            <?= $form->field($model, 'company_region_sid', ['errorOptions' => ['class' => 'exclamation', 'style' => 'padding:0;margin:0;']])->dropDownList($region_sid, ['class' => 'danbao', 'id' => 'company_region_sid'])->label(false); ?>
                             <br>
                             <?= $form->field($model, 'company_address', ['template' => "{input}"])->textInput(['class' => 'w145', 'style' => 'margin-left:100px', 'id' => 'adress'])->label(false); ?>
                         </li>
@@ -139,7 +142,7 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
                         </li>
                         <li>
                             <label>企业近一年资产负债率：</label>
-                            <?= $form->field($model, 'incur_debts', ['template' => "{input}%"])->textInput(['class' => 'w200'])->label(false); ?>
+                            <?= $form->field($model, 'incur_debts', ['template' => "{input}<p>%</p>{error}", 'errorOptions' => ['class' => 'exclamation']])->textInput(['class' => 'w200'])->label(false); ?>
                         </li>
                     </ul>
                     <input type="hidden" name="is_gq" value="0">
@@ -154,8 +157,8 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
                         </li>
                         <li>
                             <label><i>*</i>户籍：</label>
-                            <?= $form->field($model, 'manager_province', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($region_bid, ['class' => 'huji', 'id' => 'manager_province'])->label(false); ?>
-                            <?= $form->field($model, 'manager_city', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($region_mid, ['class' => 'huji', 'id' => 'manager_city'])->label(false); ?>
+                            <?= $form->field($model, 'manager_province', ['errorOptions' => ['class' => 'exclamation', 'style' => 'padding:0;margin:0;']])->dropDownList($region_bid, ['class' => 'huji', 'id' => 'manager_province'])->label(false); ?>
+                            <?= $form->field($model, 'manager_city', ['errorOptions' => ['class' => 'exclamation', 'style' => 'padding:0;margin:0;']])->dropDownList($region_mid, ['class' => 'huji', 'id' => 'manager_city'])->label(false); ?>
                         </li>
                     </ul>
                 </div>
@@ -186,42 +189,24 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
                 <!--附件上传-->
                 <div class="message_label" style="border-bottom:0;" data-floor="6">
                     <div class="daikuan_title six_title">
-                        <p>附件上传</p>
-                        <span>单次上传请不要超过30M，上传类型为压缩包文件。为了尽快审核和处理您的贷款申请，请您尽快上传如下清单中的所需文件。</span>
+                        <p>营业执照上传</p><span></span>
                     </div>
                     <div class="update_raea">
                         <ul class="clearfix">
                             <li>
                                 <div class="upload upload2" style="display:block">
-                                    <!--
-                                    <label for="upload"></label>
-                                    <input type="file" name="upload" id="upload">
-                                    -->
                                     <label for="fileupload" id="update_btn"></label>
-                                    <input name="mypic" id="fileupload" type="file">
+                                    <input name="mypic" id="fileupload" type="file" onchange="fileChange(this);"/>
                                 </div>
-                                <!--<a href="javascript:void(0)" class="update_project"></a>-->
-                                <div class="update_show" style="display:none">
-                                    <a>
-                                        <img src="http://wxjrfw.yirongbang.net/theme/red_theme/member/images/member/update_example.jpg" alt="">
-                                        <i class="close_update" style="cursor:pointer"></i>
-                                    </a>
-                                    <span class="mt20" id="text_document_name"></span>
-                                    <span id="text_document_created"></span>
-                                </div>
+                                <?= $form->field($model, 'document_url', ['errorOptions' => ['class' => 'exclamation']])->hiddenInput(['id' => 'document_url'])->label(false); ?>
                             </li>
                         </ul>
-                        <em>注：文件内容 &lt; 3M</em>
-                        <p>如：营业执照或者名片(请打包成zip／rar格式一次上传)</p>
                     </div>
                 </div>
-
                 <!--按钮区域-->
                 <div class="btn_area">
-                    <input type="button" name="" value="保 存" class="cancel_button" onclick="submit_form('save', 'add')">
-                    <input type="button" name="" value="提 交" class="submit_button" onclick="submit_form('submit', 'add')">
+                    <?= Html::submitButton('提 交', ['class' => 'submit_button']); ?>
                 </div>
-
             </div>
             <?php ActiveForm::end(); ?>
         </div>
@@ -230,6 +215,12 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
 
 <script>
     $(function () {
+        //时间插件
+        laydate.render({
+            elem: '#company_created',
+            theme: '#FF6666'
+        });
+
         //担保联动~~~start
         $("#guarantee_bid").change(function () {
             ajax_get_guarantee('guarantee_bid', 'guarantee_mid', 2, $(this).val());
@@ -288,10 +279,49 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
             });
         }
         //公司地址联动~~~end
+
         //户籍联动~~~start
         $('#manager_province').change(function () {
             ajax_get_region('manager_province', 'manager_city', 2, $(this).val());
         });
         //户籍联动~~~end
     });
+
+    //上传图片
+    function fileChange(target) {
+        var thisId = target.id;
+        var formData = new FormData();
+        formData.append("_csrf", "<?= Yii::$app->request->csrfToken ?>");
+        formData.append("type", 'license');
+        formData.append("file", $('#' + thisId)[0].files[0]);
+        $.ajax({
+            url: "<?= Url::to(['claims-right/ajax-upload-files']) ?>",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            beforeSend: function () {
+                //可以做一些正在上传的效果
+            },
+            success: function (data) {
+                //data，我们这里是异步上传到后端程序所返回的图片地址
+                var obj = JSON.parse(data);
+                if (obj.code == 20000) {
+                    $("#document_url").val(obj.success.url);
+//                        $('.upload_before img').attr('src', '/public/kjd/images/file_finsh.png');
+//                        $('.upload_describe .title').html('上传成功');
+//                        $('.upload_describe .subtitle').html('重新上传营业执照<i></i>');
+                    //为了让yii2的验证生效
+                    $("#document_url").focus();
+                    $("#document_url").blur();
+                }
+                if (obj.code == 20001) {
+                    layer.msg(obj.error, {icon: 2, time: 2000});
+                }
+            },
+            error: function (responseStr) {
+                console.log(responseStr);
+            }
+        });
+    }
 </script>
