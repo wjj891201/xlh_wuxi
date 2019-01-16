@@ -195,7 +195,9 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
                         <ul class="clearfix">
                             <li>
                                 <div class="upload upload2" style="display:block">
-                                    <label for="fileupload" id="update_btn"></label>
+                                    <label for="fileupload" id="update_btn" style="text-align: center;">
+                                        <img src="/public/wx/images/upload.png" style="margin-top: 14px;">
+                                    </label>
                                     <input name="mypic" id="fileupload" type="file" onchange="fileChange(this);"/>
                                 </div>
                                 <?= $form->field($model, 'document_url', ['errorOptions' => ['class' => 'exclamation']])->hiddenInput(['id' => 'document_url'])->label(false); ?>
@@ -308,9 +310,7 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
                 var obj = JSON.parse(data);
                 if (obj.code == 20000) {
                     $("#document_url").val(obj.success.url);
-//                        $('.upload_before img').attr('src', '/public/kjd/images/file_finsh.png');
-//                        $('.upload_describe .title').html('上传成功');
-//                        $('.upload_describe .subtitle').html('重新上传营业执照<i></i>');
+                    $('#update_btn img').attr('src', '/public/wx/images/file_finsh.png');
                     //为了让yii2的验证生效
                     $("#document_url").focus();
                     $("#document_url").blur();
