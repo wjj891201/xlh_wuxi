@@ -5,12 +5,12 @@ namespace app\models;
 use yii\db\ActiveRecord;
 use Yii;
 
-class Region extends ActiveRecord
+class Industry extends ActiveRecord
 {
 
     public static function tableName()
     {
-        return "{{%region}}";
+        return "{{%industry}}";
     }
 
     public static function getList($where = [])

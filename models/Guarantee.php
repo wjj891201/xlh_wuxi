@@ -5,12 +5,12 @@ namespace app\models;
 use yii\db\ActiveRecord;
 use Yii;
 
-class Region extends ActiveRecord
+class Guarantee extends ActiveRecord
 {
 
     public static function tableName()
     {
-        return "{{%region}}";
+        return "{{%guarantee}}";
     }
 
     public static function getList($where = [])
