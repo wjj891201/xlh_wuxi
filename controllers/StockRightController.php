@@ -18,4 +18,13 @@ class StockRightController extends CheckController
         return $this->render('list');
     }
 
+    /**
+     * 发布股权融资项目
+     */
+    public function actionAdd()
+    {
+
+        return $this->render('add');
+    }
+
 }
