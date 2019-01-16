@@ -41,6 +41,7 @@ class ClaimsRightController extends CheckController
         # 贷款用途
         $loans_usage = Yii::$app->params['loans_usage'];
         $loans_usage = ArrayHelper::map($loans_usage, 'id', 'name');
+        $loans_usage = $choice + $loans_usage;
         # 担保方式
         // 1.0一级担保
         $guarantee_bid = Guarantee::getList(['top_id' => 0]);
@@ -69,6 +70,28 @@ class ClaimsRightController extends CheckController
                     'region_bid' => $region_bid, 'region_mid' => $region_mid, 'region_sid' => $region_sid,
                     'company_industry' => $company_industry
         ]);
+    }
+
+    /**
+     * AJAX获取担保
+     */
+    public function actionAjaxGetGuarantee()
+    {
+        $level = Yii::$app->request->post('level');
+        $top_id = Yii::$app->request->post('top_id');
+        $list = Guarantee::getList(['top_id' => $top_id, 'level' => $level]);
+        return json_encode($list);
+    }
+
+    /**
+     * AJAX获取地区
+     */
+    public function actionAjaxGetRegion()
+    {
+        $type = Yii::$app->request->post('type');
+        $parent_id = Yii::$app->request->post('parent_id');
+        $list = Region::getList(['parent_id' => $parent_id, 'type' => $type]);
+        return json_encode($list);
     }
 
 }

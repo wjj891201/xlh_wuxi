@@ -58,8 +58,8 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
                         <li>
                             <label><i>*</i>担保方式：</label>
                             <?= $form->field($model, 'guarantee_bid', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($guarantee_bid, ['class' => 'danbao w-select', 'id' => 'guarantee_bid'])->label(false); ?>
-                            <?= $form->field($model, 'guarantee_mid', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($guarantee_mid, ['class' => 'danbao w-select', 'id' => 'guarantee_bid'])->label(false); ?>
-                            <?= $form->field($model, 'guarantee_sid', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($guarantee_sid, ['class' => 'danbao w-select', 'id' => 'guarantee_bid'])->label(false); ?>
+                            <?= $form->field($model, 'guarantee_mid', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($guarantee_mid, ['class' => 'danbao w-select', 'id' => 'guarantee_mid'])->label(false); ?>
+                            <?= $form->field($model, 'guarantee_sid', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($guarantee_sid, ['class' => 'danbao w-select', 'id' => 'guarantee_sid'])->label(false); ?>
                         </li>
                         <li>
                             <label><i>*</i>估值：</label>
@@ -91,7 +91,7 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
                         <li style="height:auto">
                             <label><i>*</i>公司地址：</label>
                             <?= $form->field($model, 'company_region_bid', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($region_bid, ['class' => 'danbao', 'id' => 'company_region_bid'])->label(false); ?>
-                            <?= $form->field($model, 'company_region_mid', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($region_mid, ['class' => 'danbao', 'id' => 'company_region_bid'])->label(false); ?>
+                            <?= $form->field($model, 'company_region_mid', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($region_mid, ['class' => 'danbao', 'id' => 'company_region_mid'])->label(false); ?>
                             <?= $form->field($model, 'company_region_sid', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($region_sid, ['class' => 'danbao', 'id' => 'company_region_sid'])->label(false); ?>
                             <br>
                             <?= $form->field($model, 'company_address', ['template' => "{input}"])->textInput(['class' => 'w145', 'style' => 'margin-left:100px', 'id' => 'adress'])->label(false); ?>
@@ -155,9 +155,7 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
                         <li>
                             <label><i>*</i>户籍：</label>
                             <?= $form->field($model, 'manager_province', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($region_bid, ['class' => 'huji', 'id' => 'manager_province'])->label(false); ?>
-                            <select class="huji" name="manager_city">
-                                <option>请选择</option>
-                            </select>
+                            <?= $form->field($model, 'manager_city', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($region_mid, ['class' => 'huji', 'id' => 'manager_city'])->label(false); ?>
                         </li>
                     </ul>
                 </div>
@@ -229,3 +227,71 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
         </div>
     </div>
 </div>
+
+<script>
+    $(function () {
+        //担保联动~~~start
+        $("#guarantee_bid").change(function () {
+            ajax_get_guarantee('guarantee_bid', 'guarantee_mid', 2, $(this).val());
+        });
+        $("#guarantee_mid").change(function () {
+            ajax_get_guarantee('guarantee_mid', 'guarantee_sid', 3, $(this).val());
+        });
+        function ajax_get_guarantee(get_name, set_name, level, id) {
+            $.ajax({
+                type: 'post',
+                url: '<?= Url::to(['claims-right/ajax-get-guarantee']) ?>',
+                dataType: "json",
+                data: {_csrf: '<?= Yii::$app->request->csrfToken ?>', level: level, top_id: id},
+                success: function (data) {
+                    if (get_name == 'guarantee_bid') {
+                        $('#guarantee_mid,#guarantee_sid').empty().append("<option value=''>请选择</option>");
+                    }
+                    if (get_name == 'guarantee_mid') {
+                        $('#guarantee_sid').empty().append("<option value=''>请选择</option>");
+                    }
+                    $.each(data, function (idx, item) {
+                        $('#' + set_name).append($("<option value=" + item.id + ">" + item.name + "</option>"));
+                    });
+                }
+            });
+        }
+        //担保联动~~~end
+
+        //公司地址联动~~~start	
+        $('#company_region_bid').change(function () {
+            ajax_get_region('company_region_bid', 'company_region_mid', 2, $(this).val());
+        });
+        $('#company_region_mid').change(function () {
+            ajax_get_region('company_region_mid', 'company_region_sid', 3, $(this).val());
+        });
+        function ajax_get_region(get_name, set_name, type, id) {
+            $.ajax({
+                type: 'post',
+                url: '<?= Url::to(['claims-right/ajax-get-region']) ?>',
+                dataType: "json",
+                data: {_csrf: '<?= Yii::$app->request->csrfToken ?>', type: type, parent_id: id},
+                success: function (data) {
+                    if (get_name == 'company_region_bid') {
+                        $('#company_region_mid,#company_region_sid').empty().append("<option value=''>请选择</option>");
+                    }
+                    if (get_name == 'company_region_mid') {
+                        $('#company_region_sid').empty().append("<option value=''>请选择</option>");
+                    }
+                    if (get_name == 'manager_province') {
+                        $('#manager_city').empty().append("<option value=''>请选择</option>");
+                    }
+                    $.each(data, function (idx, item) {
+                        $('#' + set_name).append($("<option value=" + item.id + ">" + item.name + "</option>"));
+                    });
+                }
+            });
+        }
+        //公司地址联动~~~end
+        //户籍联动~~~start
+        $('#manager_province').change(function () {
+            ajax_get_region('manager_province', 'manager_city', 2, $(this).val());
+        });
+        //户籍联动~~~end
+    });
+</script>
