@@ -33,8 +33,7 @@ class ClaimsRightController extends CheckController
             $post = Yii::$app->request->post();
             if ($model->add($post))
             {
-                Yii::$app->session->setFlash("success", "添加成功");
-                return $this->redirect(['area/list']);
+                return $this->redirect(['call/mess', 'mess' => '债权融资项目发布成功']);
             }
         }
         $choice = ['' => '请选择'];

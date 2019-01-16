@@ -2,23 +2,20 @@
 
 use yii\helpers\Url;
 
-$this->registerCssFile('@web/public/kjd/css/tz.css', ['depends' => ['app\assets\KjdAsset']]);
+$this->registerCssFile('@web/public/wx/css/tz.css', ['depends' => ['app\assets\WxAsset']]);
 $this->title = $mess;
 $this->params['breadcrumbs'][] = $this->title;
 $this->registerMetaTag(['name' => 'keywords', 'content' => '']);
 $this->registerMetaTag(['name' => 'description', 'content' => ''], 'description');
 ?>
 <div class="wrapper">
-    <div class="titleBar" style="background:#3e9fff;">
-        <div class="main1200" style="height:75px"></div>
-    </div>
     <div class="framecenter">
         <table style="width:90%;margin:0px auto;margin-top:100px;margin-bottom:50px;">
             <tr>
                 <td class="center">
                     <table style="margin:0px auto;">
                         <tr>
-                            <td><span class="messicon"><img src="/public/kjd/images/lightbulb.gif" /></span></td>
+                            <td><span class="messicon"><img src="/public/wx/images/lightbulb.gif" /></span></td>
                             <td><span class="messtext strong fontsize14"><?= $mess ?></span></td>
                         </tr>
                     </table>
