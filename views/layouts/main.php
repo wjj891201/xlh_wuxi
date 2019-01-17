@@ -43,7 +43,7 @@ WxAsset::register($this);
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="menu-container">
+            <div class="menu-container" style="border-bottom:2px solid #f4c11e;">
                 <div class="m1200 smenu-content">
                     <div class="menu-logo" style="margin-top:-8px">
                         <a href="../"><img src="<?= $this->params['config']['logo'] ?>"></a>
@@ -90,7 +90,9 @@ WxAsset::register($this);
                     $('.ctwo').hide();
                 });
             </script>
-            <?= $content ?>
+            <div id="content_here">
+                <?= $content ?>
+            </div>
         </div>
         <div class="zi-footer po" style="height:160px">
             <div class="zi-footer-content" style="width:1200px;height:135px">
@@ -110,6 +112,13 @@ WxAsset::register($this);
                 </dl>
             </div>
         </div>
+        <script>
+            $(function () {
+                var h = $(window).height();
+                var H = $('.top_header').height() + $('.menu-container').height() + $('.zi-footer').height();
+                $("#content_here").css({"min-height": h - H, "background": "#f8f8f8"});
+            });
+        </script>
         <?php $this->endBody() ?>
     </body>
 </html>

@@ -19,7 +19,6 @@ $this->registerJsFile('@web/public/wx/js/layer/layer.js', ['depends' => ['app\as
 $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
 $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_END]);
 ?>
-<div style="border-bottom:2px solid #f4c11e;"></div>
 <div class="wrapper member">
     <div class="member_crumb container_25">
         <a href="">会员中心</a> &gt;

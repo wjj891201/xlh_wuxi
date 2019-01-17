@@ -20,9 +20,7 @@ $this->registerCssFile('@web/public/wx/css/register.css', ['depends' => 'app\ass
 $this->registerJsFile('@web/public/wx/js/layer/layer.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
 # layer~~~end
 ?>	
-<div class="foget_line"></div>
-<div class="container_25 clearfix forget_content">
-    <h2>找回密码</h2>
+<div class="container_25 clearfix forget_content" style="margin-top: 20px;">
     <div class="forget_password">
         <?php
         $form = ActiveForm::begin([

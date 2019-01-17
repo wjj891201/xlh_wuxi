@@ -13,7 +13,6 @@ $this->registerCssFile('@web/public/wx/css/grid.css', ['depends' => 'app\assets\
 $this->registerCssFile('@web/public/wx/css/normalize.css', ['depends' => 'app\assets\WxAsset']);
 $this->registerCssFile('@web/public/wx/css/member.css', ['depends' => 'app\assets\WxAsset']);
 ?>
-<div style="border-bottom:2px solid #f4c11e;"></div>
 <div class="wrapper member">
     <div class="member_crumb container_25">
         <a href="">会员中心</a> &gt;

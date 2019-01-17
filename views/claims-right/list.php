@@ -13,7 +13,6 @@ $this->registerCssFile('@web/public/wx/css/member.css', ['depends' => 'app\asset
 $this->registerCssFile('@web/public/wx/css/out_member.css', ['depends' => 'app\assets\WxAsset']);
 $this->registerCssFile('@web/public/wx/css/dai_member.css', ['depends' => 'app\assets\WxAsset']);
 ?>
-<div style="border-bottom:2px solid #f4c11e;"></div>
 <div class="wrapper member">
     <div class="member_crumb container_25">
         <a href="">会员中心</a> &gt;
@@ -40,9 +39,7 @@ $this->registerCssFile('@web/public/wx/css/dai_member.css', ['depends' => 'app\a
                 <li class="w20per">创建时间</li>
                 <li class="w20per">操作</li>
             </ul>
-            <ul class="examine_content">
-                暂无信息					
-            </ul>
+            <ul class="examine_content" style="text-align: center;margin-top: 20px;">暂无信息</ul>
         </div>
     </div>
 </div>
