@@ -8,7 +8,7 @@ use yii\helpers\Url;
         <dt class="message_icon">信息管理</dt>
         <dd>
             <a href="">账号信息</a>
-            <a href="<?= Url::to(['member/psw']) ?>">修改密码</a>
+            <a href="<?= Url::to(['member/psw']) ?>" <?php if ($this->context->action->id == 'psw'): ?>class="cur"<?php endif; ?>>修改密码</a>
         </dd>
     </dl>    
     <dl>

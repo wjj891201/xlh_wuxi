@@ -3,6 +3,7 @@
 use app\assets\WxAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use app\models\Advert;
 
 WxAsset::register($this);
 ?>
@@ -20,24 +21,26 @@ WxAsset::register($this);
         <div class="wrapper">
             <div class="top_header swxheight stopbg">
                 <div class="m1200">
-                    <div class="login_state">
-                        <?php if (Yii::$app->session['member']['isLogin'] == 1): ?>
-                            <div class="name_member" style="position:relative">欢迎您
+                    <a href="/" class="stop_index">首页</a>
+                    <?php if (Yii::$app->session['member']['isLogin'] == 1): ?>
+                        <div class="login_state slogo">
+                            <div class="sname_member" style="position:relative">欢迎您，
                                 <a href="<?= Url::to(['member/center']) ?>"><?= Yii::$app->session['member']['username'] ?></a>
-                                <div class="login-down">
-                                    <em></em>
-                                    <a href="">债权项目</a>
-                                    <a href="">股权项目</a>
-                                    <a href="">产品申请</a>
-                                    <a href="">订单管理</a>
+                                <div class="slogin-down">
+                                    <span class="membercenter"></span>
+                                    <a href="" style="float:left;margin-left:-28px;margin-top:5px">会员中心</a><br/>
+                                    <span style="margin-top:5px;display: block;border-top:solid 1px #dddddd;"></span>
+                                    <span class="loginout"></span>
+                                    <a href="<?= Url::to(['public/logout']) ?>" style="float:left;margin-left:40px;margin-top:-65px;">退出登录</a>
                                 </div>
                             </div>
-                            <a href="<?= Url::to(['public/logout']) ?>" class="quit">退出</a>
-                        <?php else: ?>
+                        </div>
+                    <?php else: ?>
+                        <div class="login_state">
                             <a href="<?= Url::to(['public/login']) ?>" class="stop_login">您还未登录，登录</a>
                             <a href="<?= Url::to(['public/signup']) ?>" class="stop_register">|&nbsp;&nbsp;注册</a>
-                        <?php endif; ?>
-                    </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="menu-container">
@@ -92,9 +95,11 @@ WxAsset::register($this);
         <div class="zi-footer po" style="height:160px">
             <div class="zi-footer-content" style="width:1200px;height:135px">
                 <ul class="ft-about sft-about" >
-                    <li><a class="spa" href="http://www.jsjrfw.com/" target="_blank">友情链接：江苏省金融服务平台</a></li>
-                    <li><a class="spa" href="http://www.wxjrpt.com/" target="_blank">无锡市金融服务平台</a></li>
-                    <li><a class="spa" href="http://www.jsxishan.gov.cn/" target="_blank">无锡市锡山区人民政府</a></li>
+                    <?php $links = Advert::get_ad(['atid' => 15, 'isclass' => 1]); ?>
+                    <li><a class="spa" href="javascript:void(0);">友情链接：</li>
+                    <?php foreach ($links as $key => $vo): ?>
+                        <li><a class="spa" href="<?= $vo['url'] ?>" target="_blank"><?= $vo['title'] ?></a></li>
+                    <?php endforeach; ?>
                 </ul>
                 <dl class="friend-link" >
                     <dd>
