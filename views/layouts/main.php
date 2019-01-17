@@ -49,12 +49,12 @@ WxAsset::register($this);
                         <a href="../"><img src="<?= $this->params['config']['logo'] ?>"></a>
                     </div>
                     <ul class="spmenu-nav clearfix">
-                        <li class="cs" class="menu-cur"><a href="">首页</a></li>
-                        <li class="more gqrz smenu-cur"><a href="">股权融资</a></li>                        
-                        <li class="more zqrz smenu-cur"><a href="">债权融资</a></li>   
-                        <li><a class=menu-cur href="">金融路演</a></li>                        
+                        <li><a href="" <?php if ($this->context->id == 'index'): ?>class="smenu-cur"<?php endif; ?>>首页</a></li>
+                        <li><a href="">股权融资</a></li>                        
+                        <li><a href="">债权融资</a></li>   
+                        <li><a href="">金融路演</a></li>                        
                         <li><a href="">产业招商</a></li>
-                        <li><a class=menu-cur href="">金融招商</a></li>                    
+                        <li><a href="">金融招商</a></li>                    
                     </ul>
                     <div class="wuxi">
                         <a href="" target="_blank">产业金融贷款系统</a>
