@@ -66,65 +66,51 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
                     </div>
                     <div class="vcase">
                         <p class="case-title"><i>&nbsp;</i>企业性质</p>
-                        <select name="company_type" id="company_type" class="wd30">
-                            <option value="1" selected="">无</option>
-                            <option value="2">有限责任公司</option>
-                            <option value="3">股份有限公司</option>
-                            <option value="4">国有独资公司</option>
-                            <option value="5">个人独资企业</option>
-                            <option value="6">合伙企业</option>
-                            <option value="7">个体工商户</option>
-                            <option value="8">外商投资企业</option>
-                            <option value="9">私营企业</option>
-                        </select>
+                        <?= $form->field($model, 'company_type', ['errorOptions' => ['class' => 'exclamation']])->dropDownList($company_type, ['id' => 'company_type', 'class' => 'wd30'])->label(false); ?>
                     </div>
-                    <div class="vcase">
-                        <div class="case-title-two ht16" style="margin-left: 0px;"><i>*</i><p>企业注册信息</p></div>
+                    <div class="vcase" style="margin-bottom: 5px;">
+                        <div class="case-title-two" style="margin-left: 0px;"><i>*</i><p>注册信息</p></div>
                         <div class="case-box">
-                            <h3 id="register_msg" class="register_title">请选择填写一项</h3>
                             <div class="inner-box">
                                 <div class="inner-case">
-                                    <label class="case-title" for="registered">工商注册号</label><input name="registered" id="registered" type="text" class="cpt wd22" value="">
+                                    <label class="case-title" for="registered">工商注册号</label>
+                                    <?= $form->field($model, 'tax_registration', ['template' => "{input}{error}", 'errorOptions' => ['class' => 'exclamation']])->textInput(['class' => 'cpt wd22'])->label(false); ?>
                                 </div>
                                 <div class="inner-case">
-                                    <label class="case-title" for="social_credit">企业统一社会信用代码</label><input name="social_credit" id="social_credit" type="text" class="cpt wd22" value="">
+                                    <label class="case-title" for="social_credit">企业统一社会信用代码</label>
+                                    <?= $form->field($model, 'organization_code', ['template' => "{input}{error}", 'errorOptions' => ['class' => 'exclamation']])->textInput(['class' => 'cpt wd22'])->label(false); ?>
                                 </div>
                             </div>
-                            <p id="register_notice" style="display:none;"></p>
                         </div>
                     </div>
                 </div>
                 <div class="bottom-box">
                     <div class="gather">
-                        <label class="case-title"><i>*</i>真实姓名</label><input name="name" id="name" type="text" class="wd16" value="">
-                        <p id="name_notice" style="display:none;"></p>
-
+                        <label class="case-title"><i>*</i>真实姓名</label>
+                        <?= $form->field($model, 'contacts', ['template' => "{input}{error}", 'errorOptions' => ['class' => 'exclamation']])->textInput(['class' => 'wd16'])->label(false); ?>
                     </div>
                     <div class="gather">
-                        <label class="case-title"><i>*</i>职位名称</label><input name="job" id="job" type="text" class="wd16" value="">
-                        <p id="job_notice" style="display:none;"></p>
+                        <label class="case-title"><i>*</i>职位名称</label>
+                        <?= $form->field($model, 'duties', ['template' => "{input}{error}", 'errorOptions' => ['class' => 'exclamation']])->textInput(['class' => 'wd16'])->label(false); ?>
                     </div>
                     <div class="gather">
-                        <label class="case-title"><i>*</i>联系手机</label><input name="phone" id="phone" type="text" class="wd16" value="13918249869">
-                        <p id="phone_notice" style="display:none;"></p>
+                        <label class="case-title"><i>*</i>联系手机</label>
+                        <?= $form->field($model, 'contact_number', ['template' => "{input}{error}", 'errorOptions' => ['class' => 'exclamation']])->textInput(['class' => 'wd16'])->label(false); ?>
                     </div>
                     <div class="gather">
-                        <label><i></i>邮箱</label><input name="email" id="email" type="text" class="wd16" value="">
-                        <p id="email_notice" style="display:none;"></p>
+                        <label><i></i>邮箱</label>
+                        <?= $form->field($model, 'email', ['template' => "{input}{error}", 'errorOptions' => ['class' => 'exclamation']])->textInput(['class' => 'wd16'])->label(false); ?>
                     </div>
                     <div class="gather">
-                        <label><i></i>微信</label><input name="wechat" id="wechat" type="text" class="wd16" value="">
-                        <p id="wechat_notice" style="display:none;"></p>
+                        <label><i></i>微信</label>
+                        <?= $form->field($model, 'wechat', ['template' => "{input}{error}", 'errorOptions' => ['class' => 'exclamation']])->textInput(['class' => 'wd16'])->label(false); ?>
                     </div>
                     <div class="gather">
-                        <label><i></i>网址</label><input name="website" id="website" type="text" class="wd16" value="">
-                        <p id="website_notice" style="display:none;"></p>
+                        <label><i></i>网址</label>
+                        <?= $form->field($model, 'company_website', ['template' => "{input}{error}", 'errorOptions' => ['class' => 'exclamation']])->textInput(['class' => 'wd16'])->label(false); ?>
                     </div>
-                    <input name="session_key" type="hidden" value="1547630419">
-                    <input name="pro_id" type="hidden" value="">
                     <div class="btn-group">
-                        <input type="button" name="" value="取 消" class="cancel_button" id="cancel">
-                        <input type="submit" name="submit" id="submit_btn" value="下一步" class="submit_button">
+                        <?= Html::submitButton('提 交', ['class' => 'submit_button']); ?>
                     </div>
                 </div>
             </div>
@@ -140,5 +126,36 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
             elem: '#establish_time',
             theme: '#FF6666'
         });
+        
+         //公司地址联动~~~start	
+        $('#company_region_bid').change(function () {
+            ajax_get_region('company_region_bid', 'company_region_mid', 2, $(this).val());
+        });
+        $('#company_region_mid').change(function () {
+            ajax_get_region('company_region_mid', 'company_region_sid', 3, $(this).val());
+        });
+        function ajax_get_region(get_name, set_name, type, id) {
+            $.ajax({
+                type: 'post',
+                url: '<?= Url::to(['claims-right/ajax-get-region']) ?>',
+                dataType: "json",
+                data: {_csrf: '<?= Yii::$app->request->csrfToken ?>', type: type, parent_id: id},
+                success: function (data) {
+                    if (get_name == 'company_region_bid') {
+                        $('#company_region_mid,#company_region_sid').empty().append("<option value=''>请选择</option>");
+                    }
+                    if (get_name == 'company_region_mid') {
+                        $('#company_region_sid').empty().append("<option value=''>请选择</option>");
+                    }
+                    if (get_name == 'manager_province') {
+                        $('#manager_city').empty().append("<option value=''>请选择</option>");
+                    }
+                    $.each(data, function (idx, item) {
+                        $('#' + set_name).append($("<option value=" + item.id + ">" + item.name + "</option>"));
+                    });
+                }
+            });
+        }
+        //公司地址联动~~~end
     });
 </script>

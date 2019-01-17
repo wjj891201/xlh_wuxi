@@ -44,7 +44,10 @@ class StockRightController extends CheckController
         $region_mid = $choice;
         // 3.0三级地区
         $region_sid = $choice;
-        return $this->render('add', ['model' => $model, 'region_bid' => $region_bid, 'region_mid' => $region_mid, 'region_sid' => $region_sid,]);
+        # 企业性质
+        $company_type = Yii::$app->params['company_type'];
+        $company_type = ArrayHelper::map($company_type, 'id', 'name');
+        return $this->render('add', ['model' => $model, 'region_bid' => $region_bid, 'region_mid' => $region_mid, 'region_sid' => $region_sid, 'company_type' => $company_type]);
     }
 
 }
