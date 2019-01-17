@@ -21,7 +21,7 @@ WxAsset::register($this);
         <div class="wrapper">
             <div class="top_header swxheight stopbg">
                 <div class="m1200">
-                    <a href="/" class="stop_index">首页</a>
+                    <a href="../" class="stop_index">首页</a>
                     <?php if (Yii::$app->session['member']['isLogin'] == 1): ?>
                         <div class="login_state slogo">
                             <div class="sname_member" style="position:relative">欢迎您，
@@ -49,9 +49,9 @@ WxAsset::register($this);
                         <a href="../"><img src="<?= $this->params['config']['logo'] ?>"></a>
                     </div>
                     <ul class="spmenu-nav clearfix">
-                        <li><a href="" <?php if ($this->context->id == 'index'): ?>class="smenu-cur"<?php endif; ?>>首页</a></li>
-                        <li><a href="">股权融资</a></li>                        
-                        <li><a href="">债权融资</a></li>   
+                        <li><a href="../" <?php if ($this->context->id == 'index'): ?>class="smenu-cur"<?php endif; ?>>首页</a></li>
+                        <li class="more gqrz smenu-cur"><a href="">股权融资</a></li>                        
+                        <li class="more zqrz smenu-cur"><a href="">债权融资</a></li>   
                         <li><a href="">金融路演</a></li>                        
                         <li><a href="">产业招商</a></li>
                         <li><a href="">金融招商</a></li>                    
@@ -72,9 +72,9 @@ WxAsset::register($this);
             <div class="wxmenu-container wxmenu-nav-down ctwo">
                 <div class="m1200 smenu-content">
                     <ul class="smenu-nav clearfix" style="height: 50%;">
-                        <li><a href="yrd/goods/search.html" target="_blank">找贷款</a></li>
-                        <li><a href="yrd/projects/index.html" target="_blank">选项目</a></li>
-                        <li><a href="yrd/tools/diagnostic.html" target="_blank">贷款工具</a></li>
+                        <li><a href="" target="_blank">找贷款</a></li>
+                        <li><a href="" target="_blank">选项目</a></li>
+                        <li><a href="" target="_blank">贷款工具</a></li>
                     </ul>
                 </div>
             </div>
