@@ -94,13 +94,26 @@ class StockRightController extends CheckController
             $post = Yii::$app->request->post();
             if ($model->add($post, 's_2'))
             {
-                return $this->redirect(['stock-right/add_2']);
+                return $this->redirect(['stock-right/add_3']);
             }
         }
         # 所属领域
         $field = EnterpriseIndustry::getList(['level' => 1]);
         $field = ArrayHelper::map($field, 'id', 'name');
         return $this->render('add_2', ['model' => $model, 'region_bid' => $region_bid, 'region_mid' => $region_mid, 'region_sid' => $region_sid, 'field' => $field]);
+    }
+
+    /**
+     * 发布股权融资项目-第三步
+     */
+    public function actionAdd_3()
+    {
+        $model = EnterpriseBase::find()->where(['user_id' => $this->userid])->one();
+        if (!$model)
+        {
+            $model = new EnterpriseBase;
+        }
+        return $this->render('add_3', ['model' => $model]);
     }
 
 }
