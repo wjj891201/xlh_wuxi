@@ -123,6 +123,14 @@ class StockRightController extends CheckController
         {
             $model = new EnterpriseBase;
         }
+        if (Yii::$app->request->isPost)
+        {
+            $post = Yii::$app->request->post();
+            if ($model->add($post, 's_3'))
+            {
+                return $this->redirect(['stock-right/add_3']);
+            }
+        }
         return $this->render('add_3', ['model' => $model]);
     }
 
