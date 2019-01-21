@@ -26,10 +26,30 @@ class StockRightController extends CheckController
      */
     public function actionAdd()
     {
+        $choice = ['' => '请选择'];
+        // 1.0一级地区
+        $region_bid = Region::getList(['type' => 1]);
+        $region_bid = ArrayHelper::map($region_bid, 'id', 'name');
+        $region_bid = $choice + $region_bid;
         $model = EnterpriseBase::find()->where(['user_id' => $this->userid])->one();
         if (!$model)
         {
             $model = new EnterpriseBase;
+            // 2.0二级地区
+            $region_mid = $choice;
+            // 3.0三级地区
+            $region_sid = $choice;
+        }
+        else
+        {
+            // 2.0二级地区
+            $region_mid = Region::getList(['parent_id' => $model->company_region_bid, 'type' => 2]);
+            $region_mid = ArrayHelper::map($region_mid, 'id', 'name');
+            $region_mid = $choice + $region_mid;
+            // 3.0三级地区
+            $region_sid = Region::getList(['parent_id' => $model->company_region_mid, 'type' => 3]);
+            $region_sid = ArrayHelper::map($region_sid, 'id', 'name');
+            $region_sid = $choice + $region_sid;
         }
         if (Yii::$app->request->isPost)
         {
@@ -39,16 +59,6 @@ class StockRightController extends CheckController
                 return $this->redirect(['stock-right/add_2']);
             }
         }
-        $choice = ['' => '请选择'];
-        # 地区
-        // 1.0一级地区
-        $region_bid = Region::getList(['type' => 1]);
-        $region_bid = ArrayHelper::map($region_bid, 'id', 'name');
-        $region_bid = $choice + $region_bid;
-        // 2.0二级地区
-        $region_mid = $choice;
-        // 3.0三级地区
-        $region_sid = $choice;
         # 企业性质
         $company_type = Yii::$app->params['company_type'];
         $company_type = ArrayHelper::map($company_type, 'id', 'name');
