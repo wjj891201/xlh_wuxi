@@ -60,14 +60,34 @@ class StockRightController extends CheckController
      */
     public function actionAdd_2()
     {
+        $choice = ['' => '请选择'];
+        // 1.0一级地区
+        $region_bid = Region::getList(['type' => 1]);
+        $region_bid = ArrayHelper::map($region_bid, 'id', 'name');
+        $region_bid = $choice + $region_bid;
         $model = EnterpriseBase::find()->where(['user_id' => $this->userid])->one();
         if (!$model)
         {
             $model = new EnterpriseBase;
+            // 2.0二级地区
+            $region_mid = $choice;
+            // 3.0三级地区
+            $region_sid = $choice;
         }
         else
         {
-            $model->project_img = 1;
+            // 2.0二级地区
+            $region_mid = Region::getList(['parent_id' => $model->bp_region_bid, 'type' => 2]);
+            $region_mid = ArrayHelper::map($region_mid, 'id', 'name');
+            $region_mid = $choice + $region_mid;
+            // 3.0三级地区
+            $region_sid = Region::getList(['parent_id' => $model->bp_region_mid, 'type' => 3]);
+            $region_sid = ArrayHelper::map($region_sid, 'id', 'name');
+            $region_sid = $choice + $region_sid;
+            if ($model->bp_profession)
+            {
+                $model->code = 1;
+            }
         }
         if (Yii::$app->request->isPost)
         {
@@ -77,16 +97,6 @@ class StockRightController extends CheckController
                 return $this->redirect(['stock-right/add_2']);
             }
         }
-        $choice = ['' => '请选择'];
-        # 地区
-        // 1.0一级地区
-        $region_bid = Region::getList(['type' => 1]);
-        $region_bid = ArrayHelper::map($region_bid, 'id', 'name');
-        $region_bid = $choice + $region_bid;
-        // 2.0二级地区
-        $region_mid = $choice;
-        // 3.0三级地区
-        $region_sid = $choice;
         # 所属领域
         $field = EnterpriseIndustry::getList(['level' => 1]);
         $field = ArrayHelper::map($field, 'id', 'name');

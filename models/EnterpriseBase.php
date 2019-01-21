@@ -8,6 +8,8 @@ use Yii;
 class EnterpriseBase extends ActiveRecord
 {
 
+    public $code;
+
     public static function tableName()
     {
         return "{{%enterprise_base}}";
@@ -41,6 +43,7 @@ class EnterpriseBase extends ActiveRecord
             'bp_region_sid' => '县/区',
             'bp_industry_id' => '所属领域',
             'bp_big_img' => '项目图片',
+            'code' => '公司团队',
             'bp_gain_model' => '商业模式',
             'bp_analysis' => '竞争优势',
             'bp_tactic_plan' => '主要竞争对手'
@@ -57,14 +60,35 @@ class EnterpriseBase extends ActiveRecord
                 ['email', 'email', 'message' => '{attribute}格式错误', 'on' => 's_1'],
                 ['company_website', 'url', 'defaultScheme' => 'http', 'message' => '正确填写{attribute}', 'on' => 's_1'],
                 [['company_type', 'tax_registration', 'organization_code', 'wechat'], 'safe', 'on' => 's_1'],
-                [['bp_name', 'bp_instroduction', 'bp_project_content', 'bp_region_bid', 'bp_region_mid', 'bp_region_sid', 'bp_industry_id', 'bp_big_img', 'bp_gain_model', 'bp_analysis'], 'required', 'message' => '{attribute}必填', 'on' => 's_2'],
-                [['bp_tactic_plan'], 'safe', 'on' => 's_2'],
+                [['bp_name', 'bp_instroduction', 'bp_project_content', 'bp_region_bid', 'bp_region_mid', 'bp_region_sid', 'bp_industry_id', 'bp_big_img', 'code', 'bp_gain_model', 'bp_analysis'], 'required', 'message' => '{attribute}必填', 'on' => 's_2'],
+                [['bp_profession', 'bp_tactic_plan'], 'safe', 'on' => 's_2'],
         ];
     }
 
     public function add($data, $scenario)
     {
         $this->scenario = $scenario;
+        # 处理公司团队~~~start
+        if ($scenario == 's_2')
+        {
+            $pro_name = isset($data['pro_name']) ? $data['pro_name'] : '';
+            $pro_job = isset($data['pro_job']) ? $data['pro_job'] : '';
+            $pro_exp = isset($data['pro_exp']) ? $data['pro_exp'] : '';
+            if (!empty($pro_name) && !empty($pro_job) && !empty($pro_exp))
+            {
+                $people = [];
+                $count = count($pro_name);
+                for ($i = 0; $i < $count; $i++)
+                {
+                    $people[$i]['name'] = $pro_name[$i];
+                    $people[$i]['position'] = $pro_job[$i];
+                    $people[$i]['experience'] = $pro_exp[$i];
+                }
+                $data['EnterpriseBase']['bp_profession'] = json_encode($people);
+                unset($data['pro_name'], $data['pro_job'], $data['pro_exp']);
+            }
+        }
+        # 处理公司团队~~~end
         if ($this->load($data) && $this->save())
         {
             return true;

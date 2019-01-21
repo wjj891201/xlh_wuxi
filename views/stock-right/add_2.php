@@ -71,7 +71,13 @@ $this->registerJsFile('@web/public/wx/js/layer/layer.js', ['depends' => ['app\as
                         <div class="vcase">
                             <p class="case-title-one ht8 lht8"><i></i>项目图片</p>
                             <div class="case-upload">
-                                <span><img id="project_img" src="/public/wx/images/img_example.jpg"></span>
+                                <span>
+                                    <?php if ($model->bp_big_img): ?>
+                                        <img id="project_img" src="/<?= $model->bp_big_img ?>">
+                                    <?php else: ?>
+                                        <img id="project_img" src="/public/wx/images/img_example.jpg">
+                                    <?php endif; ?>
+                                </span>
                                 <div class="upload-right" style="width:400px">
                                     <label for="upload_account" id="change_avatar" class="project-pic-upload">
                                         <i class="upload-icon"></i>
@@ -89,18 +95,49 @@ $this->registerJsFile('@web/public/wx/js/layer/layer.js', ['depends' => ['app\as
                         <div class="vcase">
                             <div class="case-title-two ht3 lht3"><i>*</i><p>公司团队</p></div>
                             <a href="javascript:;" id="team-add"><b class="add-icon">+</b>添加团队成员</a>
-                            <p id="team_notice" style="display:none;"></p>
-                            <div class="team-panel"></div>
+                            <div class="team-panel">
+                                <?php $bp_profession_arr = json_decode($model->bp_profession, true); ?>
+                                <?php if ($bp_profession_arr): ?>
+                                    <?php foreach ($bp_profession_arr as $key => $vo): ?>
+                                        <div class="team-float" data-id="<?= $key ?>">
+                                            <div class="team-box">
+                                                <div class="team-per" style="border: 1px solid #ee6f15;">
+                                                    <div class="inner-per">
+                                                        <label>姓名：</label>
+                                                        <p class="per_name"><?= $vo['name'] ?></p>
+                                                        <input name="pro_name[]" type="hidden" value="<?= $vo['name'] ?>">
+                                                    </div>
+                                                    <div class="inner-per">
+                                                        <label>职位：</label>
+                                                        <p class="per_position"><?= $vo['position'] ?></p>
+                                                        <input name="pro_job[]" type="hidden" value="<?= $vo['position'] ?>">
+                                                    </div>
+                                                    <div class="inner-per">
+                                                        <label>工作履历：</label>
+                                                        <p class="wexp"><?= $vo['experience'] ?></p>
+                                                        <input name="pro_exp[]" type="hidden" value="<?= $vo['experience'] ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="edit-box">
+                                                    <span><a href="javascript:;" class="editing"><i class="editing-icon"></i>编辑</a></span>
+                                                    <span><a href="javascript:;" class="delete"><i class="delete-icon"></i>删除</a></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                            <?= $form->field($model, 'code', ['errorOptions' => ['class' => 'exclamation']])->hiddenInput(['id' => 'code'])->label(false); ?>
                         </div>
-                        <div class="vcase">
+                        <div class="vcase" style="margin-bottom: 0px;">
                             <div class="case-title-five"><p class="model-case-title"><i>*</i>商业模式</p></div>
                             <?= $form->field($model, 'bp_gain_model', ['errorOptions' => ['class' => 'exclamation']])->textArea(['class' => 'cpt business-model', 'placeholder' => '500字以内'])->label(false); ?>
                         </div>
-                        <div class="vcase">
+                        <div class="vcase" style="margin-bottom: 0px;">
                             <div class="case-title-five"><p class="model-case-title"><i>*</i>竞争优势</p></div>
                             <?= $form->field($model, 'bp_analysis', ['errorOptions' => ['class' => 'exclamation']])->textArea(['class' => 'cpt business-model', 'placeholder' => '500字以内'])->label(false); ?>
                         </div>
-                        <div class="vcase">
+                        <div class="vcase" style="margin-bottom: 0px;">
                             <div class="case-title-five"><p class="model-case-title"><i></i>主要竞争对手</p></div>
                             <?= $form->field($model, 'bp_tactic_plan', ['errorOptions' => ['class' => 'exclamation']])->textArea(['class' => 'cpt business-model', 'placeholder' => '500字以内'])->label(false); ?>
                         </div>
@@ -112,6 +149,26 @@ $this->registerJsFile('@web/public/wx/js/layer/layer.js', ['depends' => ['app\as
                 </div>
                 <?php ActiveForm::end(); ?>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="company_team" style="display: none;">
+    <div class="member-add">
+        <div class="info-collect">
+            <label class="wd9">姓名：</label>
+            <input type="text" class="wd9 pname">
+        </div>
+        <div class="info-collect">
+            <label class="wd9">职位：</label>
+            <input type="text" class="wd9 pjob">
+        </div>
+        <div class="info-collect">
+            <label class="wd9">工作履历：</label>
+            <textarea class="pexperience" placeholder="10~200个字以内"></textarea>
+        </div>
+        <div class="popup-btn-group">
+            <a href="javascript:;" class="popup-keep">保存</a>
         </div>
     </div>
 </div>
@@ -148,6 +205,139 @@ $this->registerJsFile('@web/public/wx/js/layer/layer.js', ['depends' => ['app\as
             });
         }
         //公司地址联动~~~end
+
+        //核心管理人员相关的js~~~start
+        $('#team-add').click(function () {
+            bbb = layer.open({
+                type: 1,
+                title: '添加团队成员',
+                skin: 'layui-layer-rim',
+                area: ['300px', '390px'], //宽高
+                content: $('.company_team'),
+                end: function () {
+                    //初始化数据
+                    $('.popup-keep').attr('data-id', '');
+                    $('.pname,.pjob,.pexperience').val("");
+                    //没有内容
+                    var team_float = $('.team-float');
+                    if (team_float.length != 0) {
+                        $("#code").val(1);
+                    } else {
+                        $("#code").val('');
+                    }
+                    //为了让yii2框架的验证生效
+                    $("#code").focus();
+                    $("#code").blur();
+                }
+            });
+        });
+        $(document).on('click', '.popup-keep', function () {
+            var data_id = $(this).attr('data-id');
+            var pname = $('.pname').val();
+            if (pname == '') {
+                layer.tips('请填写姓名', '.pname');
+                return false;
+            }
+            var pjob = $('.pjob').val();
+            if (pjob == '') {
+                layer.tips('请填写职位', '.pjob');
+                return false;
+            }
+            var pexperience = $('.pexperience').val();
+            if (pexperience == '') {
+                layer.tips('请填写经历', '.pexperience');
+                return false;
+            }
+            if (data_id) {
+                //编辑
+                var editnode = $('.team-panel .team-float[data-id=' + data_id + ']');
+                editnode.find('.inner-per:eq(0)').html('<label>姓名：</label><p class="per_name">' + pname + '</p><input name="pro_name[]" type="hidden" value="' + pname + '"/>');
+                editnode.find('.inner-per:eq(1)').html('<label>职位：</label><p class="per_position">' + pjob + '</p><input name="pro_job[]" type="hidden" value="' + pjob + '"/>');
+                editnode.find('.inner-per:eq(2)').html('<label>工作履历：</label><p class="wexp">' + pexperience + '</p><input name="pro_exp[]" type="hidden" value="' + pexperience + '"/>');
+                layer.close(ccc);
+            } else {
+                //添加
+                var html = '<div class="team-float">';
+                html += '<div class="team-box">';
+                html += '<div class="team-per" style="border: 1px solid #ee6f15;">';
+                html += '<div class="inner-per">';
+                html += '<label>姓名：</label>';
+                html += '<p class="per_name">' + pname + '</p>';
+                html += '<input name="pro_name[]" type="hidden" value="' + pname + '">';
+                html += '</div>';
+                html += '<div class="inner-per">';
+                html += '<label>职位：</label>';
+                html += '<p class="per_position">' + pjob + '</p>';
+                html += '<input name="pro_job[]" class="per_position_v" type="hidden" value="' + pjob + '">';
+                html += '</div>';
+                html += '<div class="inner-per">';
+                html += '<label>工作履历：</label>';
+                html += '<p class="wexp">' + pexperience + '</p>';
+                html += '<input name="pro_exp[]" class="wexp_v" type="hidden" value="' + pexperience + '">';
+                html += '</div>';
+                html += '</div>';
+                html += '<div class="edit-box">';
+                html += '<span><a href="javascript:;" class="editing"><i class="editing-icon"></i>编辑</a></span>';
+                html += '<span><a href="javascript:;" class="delete"><i class="delete-icon"></i>删除</a></span>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+                $(".team-panel").append(html);
+                id_value();
+                layer.close(bbb);
+            }
+        });
+        $(document).on('click', '.delete', function () {
+            $(this).parents(".team-float").remove();
+            id_value();
+            //没有内容
+            var team_float = $('.team-float');
+            if (team_float.length != 0) {
+                $("#code").val(1);
+            } else {
+                $("#code").val('');
+            }
+            //为了让yii2框架的验证生效
+            $("#code").focus();
+            $("#code").blur();
+        });
+        $(document).on('click', '.editing', function () {
+            var edit_npde = $(this).parents(".team-float");
+            var data_id = edit_npde.attr('data-id');
+            $('.popup-keep').attr('data-id', data_id);
+            //姓名
+            var obj = edit_npde.find(".inner-per:eq(0)").find("p");
+            var pname = obj.html().trim();
+            //职务
+            var obj = edit_npde.find(".inner-per:eq(1)").find("p");
+            var pjob = obj.html().trim();
+            //经历
+            var obj = edit_npde.find(".inner-per:eq(2)").find("p");
+            var pexperience = obj.html().trim();
+            //赋值
+            $('.pname').val(pname);
+            $('.pjob').val(pjob);
+            $('.pexperience').val(pexperience);
+            //弹出层
+            ccc = layer.open({
+                type: 1,
+                title: '编辑公司团队',
+                skin: 'layui-layer-rim',
+                area: ['300px', '390px'], //宽高
+                content: $('.company_team'),
+                end: function () {
+                    $('.popup-keep').attr('data-id', '');
+                    $('.pname,.pjob,.pexperience').val("");
+                }
+            });
+        });
+        var id_value = function () {
+            var liNode = $('.team-panel .team-float');
+            liNode.each(function () {
+                $(this).attr('data-id', $(this).index());
+            });
+        };
+        //核心管理人员相关的js~~~end
     });
 
     //上传项目图片
