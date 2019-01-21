@@ -97,23 +97,14 @@ class ClaimsRightController extends CheckController
     {
         $system = Yii::$app->request->post('system');
         $type = Yii::$app->request->post('type');
-        if (in_array($type, array(1, 2, 3, 4, 5, 6)) && $system)
-        {
-            $allowed_types = ['mht', 'MHT', 'htm', 'HTM', 'html', 'HTML'];
-            if ($system == 3)
-            {
-                $allowed_types = ['mht', 'MHT', 'htm', 'HTM', 'html', 'HTML', 'pdf', 'PDF', 'xls', 'XLS', 'xlsx', 'XLSX'];
-            }
-            $max_size = 30720000; //30M
-        }
         if ($type == 'license')
         {
             $allowed_types = ['jpg', 'jpeg', 'pdf', 'JPG', 'JPEG', 'PDF', 'PNG', 'png'];
             $max_size = 10240000; //10M
         }
-        if ($type == 'zz')
+        if ($type == 'project')
         {
-            $allowed_types = ['jpg', 'jpeg', 'pdf', 'JPG', 'JPEG', 'PDF', 'PNG', 'png'];
+            $allowed_types = ['jpg', 'jpeg', 'JPG', 'JPEG', 'PNG', 'png', 'gif', 'GIF'];
             $max_size = 10240000; //10M
         }
         $uploan_url = 'upfile/wx/' . date('Ymd') . '/';

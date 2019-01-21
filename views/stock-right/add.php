@@ -5,7 +5,7 @@ use yii\web\View;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$this->title = '添加股权融资项目';
+$this->title = '添加股权融资-第一步';
 $this->params['breadcrumbs'][] = $this->title;
 $this->registerMetaTag(['name' => 'keywords', 'content' => '']);
 $this->registerMetaTag(['name' => 'description', 'content' => ''], 'description');
@@ -109,7 +109,7 @@ $this->registerJsFile('@web/public/wx/js/minFloor.js', ['depends' => ['app\asset
                         <?= $form->field($model, 'company_website', ['template' => "{input}{error}", 'errorOptions' => ['class' => 'exclamation']])->textInput(['class' => 'wd16'])->label(false); ?>
                     </div>
                     <div class="btn-group">
-                        <?= Html::submitButton('提 交', ['class' => 'submit_button']); ?>
+                        <?= Html::submitButton('下一步', ['class' => 'submit_button']); ?>
                     </div>
                 </div>
             </div>
