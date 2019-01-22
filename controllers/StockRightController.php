@@ -144,23 +144,43 @@ class StockRightController extends CheckController
     {
         if (Yii::$app->request->isAjax)
         {
-            $projects_id = EnterpriseBase::find()->select('id')->where(['user_id' => $this->userid])->scalar();
-            $request = Yii::$app->request;
-            $data = [
-                'projects_id' => $projects_id,
-                'financing_time' => $request->post('financing_time'),
-                'financing_stage' => $request->post('financing_stage'),
-                'financing_money' => $request->post('financing_money'),
-                'financing_currency' => $request->post('financing_currency'),
-                'financing_valuation' => $request->post('financing_valuation'),
-                'financing_valuation_currency' => $request->post('financing_valuation_currency'),
-                'financing_investors' => $request->post('financing_investors'),
-                'create_time' => time()
-            ];
-            Yii::$app->db->createCommand()->insert("{{%financing_history}}", $data)->execute();
-            $financing_id = Yii::$app->db->getLastInsertID();
-            echo $financing_id;
-            exit;
+            $data_financing_id = Yii::$app->request->post('data_financing_id', '');
+            if (empty($data_financing_id))
+            {
+                //添加
+                $projects_id = EnterpriseBase::find()->select('id')->where(['user_id' => $this->userid])->scalar();
+                $request = Yii::$app->request;
+                $data = [
+                    'projects_id' => $projects_id,
+                    'financing_time' => $request->post('financing_time'),
+                    'financing_stage' => $request->post('financing_stage'),
+                    'financing_money' => $request->post('financing_money'),
+                    'financing_currency' => $request->post('financing_currency'),
+                    'financing_valuation' => $request->post('financing_valuation'),
+                    'financing_valuation_currency' => $request->post('financing_valuation_currency'),
+                    'financing_investors' => $request->post('financing_investors'),
+                    'create_time' => time()
+                ];
+                Yii::$app->db->createCommand()->insert("{{%financing_history}}", $data)->execute();
+                $financing_id = Yii::$app->db->getLastInsertID();
+                echo $financing_id;
+                exit;
+            }
+            else
+            {
+                //编辑
+                $request = Yii::$app->request;
+                $data = [
+                    'financing_time' => $request->post('financing_time'),
+                    'financing_stage' => $request->post('financing_stage'),
+                    'financing_money' => $request->post('financing_money'),
+                    'financing_currency' => $request->post('financing_currency'),
+                    'financing_valuation' => $request->post('financing_valuation'),
+                    'financing_valuation_currency' => $request->post('financing_valuation_currency'),
+                    'financing_investors' => $request->post('financing_investors'),
+                ];
+                FinancingHistory::updateAll($data, ['financing_id' => $data_financing_id]);
+            }
         }
     }
 

@@ -44,7 +44,7 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
                             <div class="history-panel">
                                 <?php if ($model->history): ?>
                                     <?php foreach ($model->history as $key => $vo): ?>
-                                        <div class="history-box">
+                                        <div class="history-box" data-id="<?= $key ?>">
                                             <i class="lefting"></i>
                                             <div class="h-inner">
                                                 <div class="hs">
@@ -203,13 +203,14 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
                 content: $('.rz_history'),
                 end: function () {
                     //初始化数据
-                    $('.popup-keep').attr('data-id', '');
+                    $('.popup-keep').attr({'data-financing_id': '', 'data-id': ''});
                     $('#financing_time,#financing_stage,#financing_money,#financing_valuation,#financing_investors').val("");
                     $('#financing_currency,#financing_valuation_currency').val("1");
                 }
             });
         });
         $(document).on('click', '.popup-keep', function () {
+            var data_financing_id = $(this).attr('data-financing_id');
             var data_id = $(this).attr('data-id');
             var financing_time = $('#financing_time').val();
             if (financing_time == '') {
@@ -243,10 +244,10 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
             $.ajax({
                 type: "POST",
                 url: "<?= Url::to(['stock-right/ajax-add-history']) ?>",
-                data: {'_csrf': "<?= Yii::$app->request->csrfToken ?>", 'financing_time': financing_time, 'financing_stage': financing_stage, 'financing_money': financing_money, 'financing_currency': $('#financing_currency').val(), 'financing_valuation': financing_valuation, 'financing_valuation_currency': $('#financing_valuation_currency').val(), 'financing_investors': financing_investors},
+                data: {'_csrf': "<?= Yii::$app->request->csrfToken ?>", 'data_financing_id': data_financing_id, 'financing_time': financing_time, 'financing_stage': financing_stage, 'financing_money': financing_money, 'financing_currency': $('#financing_currency').val(), 'financing_valuation': financing_valuation, 'financing_valuation_currency': $('#financing_valuation_currency').val(), 'financing_investors': financing_investors},
                 dataType: "json",
                 success: function (financing_id) {
-                    if (data_id) {
+                    if (data_financing_id) {
                         //编辑
 
                         layer.close(ccc);
@@ -282,6 +283,7 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
                         html += '</div>';
                         html += '</div>';
                         $(".history-panel").append(html);
+                        id_value();
                         layer.close(bbb);
                     }
                 }
@@ -298,12 +300,16 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
                 success: function (data) {
                     if (data == '1') {
                         that.parents(".history-box").remove();
+                        id_value();
                     }
                 }
             });
         });
         $(document).on('click', '.editing', function () {
+            var data_id = $(this).parents(".history-box").attr('data-id');
+            $('.popup-keep').attr('data-id', data_id);
             var financing_id = $(this).data('financing_id');
+            $('.popup-keep').attr('data-financing_id', financing_id);
             $.ajax({
                 type: "POST",
                 url: "<?= Url::to(['stock-right/ajax-get-history']) ?>",
@@ -327,7 +333,7 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
                             content: $('.rz_history'),
                             end: function () {
                                 //初始化数据
-                                $('.popup-keep').attr('data-id', '');
+                                $('.popup-keep').attr({'data-financing_id': '', 'data-id': ''});
                                 $('#financing_time,#financing_stage,#financing_money,#financing_valuation,#financing_investors').val("");
                                 $('#financing_currency,#financing_valuation_currency').val("1");
                             }
@@ -336,6 +342,12 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
                 }
             });
         });
+        var id_value = function () {
+            var liNode = $('.history-panel .history-box');
+            liNode.each(function () {
+                $(this).attr('data-id', $(this).index());
+            });
+        };
         //融资历史相关的js~~~end
     });
 </script>
