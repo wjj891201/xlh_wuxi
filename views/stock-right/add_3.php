@@ -249,7 +249,12 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
                 success: function (financing_id) {
                     if (data_financing_id) {
                         //编辑
-
+                        var editnode = $('.history-panel div[data-id=' + data_id + ']').find('div[class="h-inner"]');
+                        editnode.find('.hs:eq(0)').html('<label>融资时间：</label><p class="h-time">' + financing_time + '</p>');
+                        editnode.find('.hs:eq(1)').html('<label>融资轮次：</label><p class="h-round">' + stage + '</p>');
+                        editnode.find('.hs:eq(2)').html('<label>融资金额：</label><p class="h-money">' + financing_money + '万 ' + mt_1 + '</p>');
+                        editnode.find('.hs:eq(3)').html('<label>估值：</label><p class="h-value">' + financing_valuation + '万 ' + mt_2 + '</p>');
+                        editnode.find('.hs:eq(4)').html('<label>投资方：</label><p class="h-invest">' + financing_investors + '</p>');
                         layer.close(ccc);
                     } else {
                         //添加

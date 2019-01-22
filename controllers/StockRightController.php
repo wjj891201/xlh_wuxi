@@ -180,6 +180,8 @@ class StockRightController extends CheckController
                     'financing_investors' => $request->post('financing_investors'),
                 ];
                 FinancingHistory::updateAll($data, ['financing_id' => $data_financing_id]);
+                echo $data_financing_id;
+                exit;
             }
         }
     }
