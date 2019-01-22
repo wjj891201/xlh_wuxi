@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+/* 
+    Created on : 2016-8-1, 14:36:51
+    Author     : jiyao
+*/
+
+.left_title{
+    float: left;
+}
+
+.project-text {
+    border: 1px solid #dddddd;
+}
+
+.register_title{
+    padding-bottom: 5px;
+}
+
+.input_tip_new{
+    border: 1px solid #dddddd;
+    background: #f7f7f7;
+    padding: 0 5px;
+    font-size: 12px;
+    height: 30px;
+    margin-left: 10px;
+    line-height: 30px;
+    width: 320px;
+    float: right;
+    display: none;
+}
+
+.message_input_new{    
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #dddddd;
+    color: #333333;
+    font-size: 12px;
+    padding-left: 8px;
+    float: left;
+}
+
+.message_input_new_one{    
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #dddddd;
+    color: #333333;
+    font-size: 12px;
+    padding-left: 8px;
+}
+
+.input_error_new{
+    border: 1px solid #ee5121;
+    color: #666;
+}
+
+.exclamation_new {
+    height: 30px;
+    line-height: 30px;
+    color: #b90000;
+    font-size: 12px;
+    padding-left: 30px;
+    padding-right: 10px;
+    margin-left: 10px;
+    background: #ffebeb url('../styImg/member/error_icon.png') 5px 6px no-repeat;
+    display: none;
+    float: left;
+    border: 1px solid #ee5121;
+    font-weight: normal;
+}
+
+.exclamation_input {
+    height: 30px;
+    line-height: 30px;
+    color: #b90000;
+    font-size: 12px;
+    padding-left: 30px;
+    padding-right: 10px;
+    margin-left: -60px;
+    background: url('../styImg/member/error_icon.png') 9px 6px no-repeat;
+    display: none;
+    float: left;
+}
+
+.per_red {
+    border: 1px solid red;
+}
+
+.span_tip {
+    font-size: 12px;
+    color: #999999;
+    float: left;
+    height: 32px;
+    line-height: 70px;
+}
+

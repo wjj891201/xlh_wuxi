@@ -51,6 +51,7 @@ class EnterpriseBase extends ActiveRecord
             't_finance_purpose' => '融资用途',
             't_sell_ratio' => '股份出让比例',
             't_listing_requirements' => '挂牌需求',
+            'business_plan' => '商业计划书'
         ];
     }
 
@@ -66,7 +67,7 @@ class EnterpriseBase extends ActiveRecord
                 [['company_type', 'tax_registration', 'organization_code', 'wechat'], 'safe', 'on' => 's_1'],
                 [['bp_name', 'bp_instroduction', 'bp_project_content', 'bp_region_bid', 'bp_region_mid', 'bp_region_sid', 'bp_industry_id', 'bp_big_img', 'code', 'bp_gain_model', 'bp_analysis'], 'required', 'message' => '{attribute}必填', 'on' => 's_2'],
                 [['bp_profession', 'bp_tactic_plan'], 'safe', 'on' => 's_2'],
-                [['t_finance_amount', 't_finance_purpose', 't_sell_ratio', 't_listing_requirements'], 'required', 'message' => '{attribute}必填', 'on' => 's_3'],
+                [['t_finance_amount', 't_finance_purpose', 't_sell_ratio', 't_listing_requirements', 'business_plan'], 'required', 'message' => '{attribute}必填', 'on' => 's_3'],
                 [['t_finance_amount', 't_sell_ratio'], 'match', 'pattern' => '/^(0|[1-9]\d*)$/', 'message' => '{attribute}必须为正整数', 'on' => 's_1'],
         ];
     }

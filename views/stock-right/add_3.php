@@ -15,6 +15,7 @@ $this->registerCssFile('@web/public/wx/css/normalize.css', ['depends' => 'app\as
 $this->registerCssFile('@web/public/wx/css/member.css', ['depends' => 'app\assets\WxAsset']);
 $this->registerCssFile('@web/public/wx/css/dai_member.css', ['depends' => 'app\assets\WxAsset']);
 $this->registerCssFile('@web/public/wx/css/release.css', ['depends' => 'app\assets\WxAsset']);
+$this->registerCssFile('@web/public/wx/css/add_projects.css', ['depends' => 'app\assets\WxAsset']);
 
 $this->registerJsFile('@web/public/wx/js/layer/layer.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
 $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
@@ -128,9 +129,10 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
                                     <i class="upload-icon"></i>
                                     <p>上传</p>
                                 </label>
-                                <input type="file" id="plan-upload" name="mypic">
+                                <input type="file" id="plan-upload" name="mypic" onchange="fileChange(this);">
                             </div>
                             <span class="ml16 span_tip">注：上传格式只支持PDF、PPT/PPTX</span>
+                            <?= $form->field($model, 'business_plan', ['errorOptions' => ['class' => 'exclamation']])->hiddenInput(['id' => 'business_plan'])->label(false); ?>
                         </div>
                         <div class="btn-group2">
                             <?= Html::submitButton('提交项目', ['class' => 'submit_button']); ?>
@@ -355,6 +357,42 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
         };
         //融资历史相关的js~~~end
     });
+
+    //上传商业计划书
+    function fileChange(target) {
+        var thisId = target.id;
+        var formData = new FormData();
+        formData.append("_csrf", "<?= Yii::$app->request->csrfToken ?>");
+        formData.append("type", 'project');
+        formData.append("file", $('#' + thisId)[0].files[0]);
+        $.ajax({
+            url: "<?= Url::to(['claims-right/ajax-upload-files']) ?>",
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            beforeSend: function () {
+                //可以做一些正在上传的效果
+            },
+            success: function (data) {
+                //data，我们这里是异步上传到后端程序所返回的图片地址
+                var obj = JSON.parse(data);
+                if (obj.code == 20000) {
+                    $('#project_img').attr('src', '/' + obj.success.url);
+                    $("#bp_big_img").val(obj.success.url);
+                    //为了让yii2的验证生效
+                    $("#bp_big_img").focus();
+                    $("#bp_big_img").blur();
+                }
+                if (obj.code == 20001) {
+                    layer.msg(obj.error, {icon: 2, time: 2000});
+                }
+            },
+            error: function (responseStr) {
+                console.log(responseStr);
+            }
+        });
+    }
 </script>
 
 
