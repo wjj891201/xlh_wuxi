@@ -102,4 +102,9 @@ class EnterpriseBase extends ActiveRecord
         return false;
     }
 
+    public function getHistory()
+    {
+        return $this->hasMany(FinancingHistory::className(), ['projects_id' => 'id']);
+    }
+
 }

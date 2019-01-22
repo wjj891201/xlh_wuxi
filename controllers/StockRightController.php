@@ -8,6 +8,7 @@ use yii\helpers\ArrayHelper;
 use app\models\EnterpriseBase;
 use app\models\Region;
 use app\models\EnterpriseIndustry;
+use app\models\FinancingHistory;
 
 class StockRightController extends CheckController
 {
@@ -131,7 +132,61 @@ class StockRightController extends CheckController
                 return $this->redirect(['stock-right/add_3']);
             }
         }
-        return $this->render('add_3', ['model' => $model]);
+        # 融资轮次
+        $financing_stage = Yii::$app->params['financing_stage'];
+        return $this->render('add_3', ['model' => $model, 'financing_stage' => $financing_stage]);
+    }
+
+    /**
+     * ajax添加融资历史
+     */
+    public function actionAjaxAddHistory()
+    {
+        if (Yii::$app->request->isAjax)
+        {
+            $projects_id = EnterpriseBase::find()->select('id')->where(['user_id' => $this->userid])->scalar();
+            $request = Yii::$app->request;
+            $data = [
+                'projects_id' => $projects_id,
+                'financing_time' => $request->post('financing_time'),
+                'financing_stage' => $request->post('financing_stage'),
+                'financing_money' => $request->post('financing_money'),
+                'financing_currency' => $request->post('financing_currency'),
+                'financing_valuation' => $request->post('financing_valuation'),
+                'financing_valuation_currency' => $request->post('financing_valuation_currency'),
+                'financing_investors' => $request->post('financing_investors'),
+                'create_time' => time()
+            ];
+            Yii::$app->db->createCommand()->insert("{{%financing_history}}", $data)->execute();
+            $financing_id = Yii::$app->db->getLastInsertID();
+            echo $financing_id;
+            exit;
+        }
+    }
+
+    /**
+     * ajax删除融资历史
+     */
+    public function actionAjaxDelHistory()
+    {
+        $financing_id = Yii::$app->request->post('financing_id');
+        $tag = FinancingHistory::deleteAll(['financing_id' => $financing_id]);
+        if ($tag)
+        {
+            echo '1';
+            exit;
+        }
+    }
+
+    /**
+     * ajax获取融资历史
+     */
+    public function actionAjaxGetHistory()
+    {
+        $financing_id = Yii::$app->request->post('financing_id');
+        $info = FinancingHistory::find()->where(['financing_id' => $financing_id])->asArray()->one();
+        echo json_encode($info);
+        exit;
     }
 
 }

@@ -41,7 +41,61 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
                         <div class="vcase">
                             <div class="case-title-two ht3 lht3"><p>融资历史</p></div>
                             <a href="javascript:;" id="history-add"><b class="add-icon">+</b>新增您的融资历史</a>
-                            <div class="history-panel"></div>
+                            <div class="history-panel">
+                                <?php if ($model->history): ?>
+                                    <?php foreach ($model->history as $key => $vo): ?>
+                                        <div class="history-box">
+                                            <i class="lefting"></i>
+                                            <div class="h-inner">
+                                                <div class="hs">
+                                                    <label>融资时间：</label>
+                                                    <p class="h-time"><?= $vo['financing_time'] ?></p>
+                                                </div>
+                                                <div class="hs">
+                                                    <label>融资轮次：</label>
+                                                    <?php
+                                                    switch ($vo['financing_stage'])
+                                                    {
+                                                        case 1:
+                                                            $str = '天使轮';
+                                                            break;
+                                                        case 2:
+                                                            $str = 'A轮';
+                                                            break;
+                                                        case 3:
+                                                            $str = 'B轮';
+                                                            break;
+                                                        case 4:
+                                                            $str = 'C轮';
+                                                            break;
+                                                        case 5:
+                                                            $str = 'PE轮';
+                                                            break;
+                                                    }
+                                                    ?>
+                                                    <p class="h-round"><?= $str ?></p>
+                                                </div>
+                                                <div class="hs">
+                                                    <label>融资金额：</label>
+                                                    <p class="h-money"><?= $vo['financing_money'] ?>万 <?= $vo['financing_currency'] == 1 ? '人民币' : '美元'; ?></p>
+                                                </div>
+                                                <div class="hs">
+                                                    <label>估值：</label>
+                                                    <p class="h-value"><?= $vo['financing_valuation'] ?>万 <?= $vo['financing_valuation_currency'] == 1 ? '人民币' : '美元'; ?></p>
+                                                </div>
+                                                <div class="hs">
+                                                    <label>投资方：</label>
+                                                    <p class="h-invest"><?= $vo['financing_investors'] ?></p>
+                                                </div>
+                                            </div>
+                                            <div class="h-edit">
+                                                <span><a href="javascript:;" data-financing_id="<?= $vo['financing_id'] ?>" class="editing"><i class="h-edit-icon"></i>编辑</a></span>
+                                                <span><a href="javascript:;" data-financing_id="<?= $vo['financing_id'] ?>" class="delete"><i class="h-delete-icon"></i>删除</a></span>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
                         </div>
                         <div class="vcase">
                             <p class="case-title"><i>*</i>融资金额</p>
@@ -98,12 +152,10 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
         <div class="info-collect">
             <label class="wd9">融资轮次：</label>
             <select id="financing_stage" class="wd16">
-                <option value="0">请选择</option>
-                <option value="1">天使轮</option>
-                <option value="2">A轮</option>
-                <option value="3">B轮</option>
-                <option value="4">C轮</option>
-                <option value="5">PE</option>
+                <option value="">请选择</option>
+                <?php foreach ($financing_stage as $key => $vo): ?>
+                    <option value="<?= $vo['id'] ?>"><?= $vo['name'] ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
         <div class="info-collect">
@@ -150,19 +202,10 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
                 area: ['350px', '430px'],
                 content: $('.rz_history'),
                 end: function () {
-//                    //初始化数据
-//                    $('.popup-keep').attr('data-id', '');
-//                    $('.pname,.pjob,.pexperience').val("");
-//                    //没有内容
-//                    var team_float = $('.team-float');
-//                    if (team_float.length != 0) {
-//                        $("#code").val(1);
-//                    } else {
-//                        $("#code").val('');
-//                    }
-//                    //为了让yii2框架的验证生效
-//                    $("#code").focus();
-//                    $("#code").blur();
+                    //初始化数据
+                    $('.popup-keep').attr('data-id', '');
+                    $('#financing_time,#financing_stage,#financing_money,#financing_valuation,#financing_investors').val("");
+                    $('#financing_currency,#financing_valuation_currency').val("1");
                 }
             });
         });
@@ -174,25 +217,124 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
                 return false;
             }
             var financing_stage = $('#financing_stage').val();
-            if (financing_stage == '0') {
+            if (financing_stage == '') {
                 layer.tips('请选择融资轮次', '#financing_stage');
                 return false;
+            } else {
+                var stage = $("#financing_stage").find("option:selected").text();
             }
             var financing_money = $('#financing_money').val();
             if (financing_money == '') {
                 layer.tips('请填写融资金额', '#financing_money');
                 return false;
             }
+            var mt_1 = $("#financing_currency").find("option:selected").text();
             var financing_valuation = $('#financing_valuation').val();
             if (financing_valuation == '') {
                 layer.tips('请填写估值', '#financing_valuation');
                 return false;
             }
+            var mt_2 = $("#financing_valuation_currency").find("option:selected").text();
             var financing_investors = $('#financing_investors').val();
             if (financing_investors == '') {
                 layer.tips('请填写投资方', '#financing_investors');
                 return false;
             }
+            $.ajax({
+                type: "POST",
+                url: "<?= Url::to(['stock-right/ajax-add-history']) ?>",
+                data: {'_csrf': "<?= Yii::$app->request->csrfToken ?>", 'financing_time': financing_time, 'financing_stage': financing_stage, 'financing_money': financing_money, 'financing_currency': $('#financing_currency').val(), 'financing_valuation': financing_valuation, 'financing_valuation_currency': $('#financing_valuation_currency').val(), 'financing_investors': financing_investors},
+                dataType: "json",
+                success: function (financing_id) {
+                    if (data_id) {
+                        //编辑
+
+                        layer.close(ccc);
+                    } else {
+                        //添加
+                        var html = '<div class="history-box">';
+                        html += '<i class="lefting"></i>';
+                        html += '<div class="h-inner">';
+                        html += '<div class="hs">';
+                        html += '<label>融资时间：</label>';
+                        html += '<p class="h-time">' + financing_time + '</p>';
+                        html += '</div>';
+                        html += '<div class="hs">';
+                        html += '<label>融资轮次：</label>';
+                        html += '<p class="h-round">' + stage + '</p>';
+                        html += '</div>';
+                        html += '<div class="hs">';
+                        html += '<label>融资金额：</label>';
+                        html += '<p class="h-money">' + financing_money + '万 ' + mt_1 + '</p>';
+                        html += '</div>';
+                        html += '<div class="hs">';
+                        html += '<label>估值：</label>';
+                        html += '<p class="h-value">' + financing_valuation + '万 ' + mt_2 + '</p>';
+                        html += '</div>';
+                        html += '<div class="hs">';
+                        html += '<label>投资方：</label>';
+                        html += '<p class="h-invest">' + financing_investors + '</p>';
+                        html += '</div>';
+                        html += '</div>';
+                        html += '<div class="h-edit">';
+                        html += '<span><a href="javascript:;" data-financing_id="' + financing_id + '" class="editing"><i class="h-edit-icon"></i>编辑</a></span>';
+                        html += '<span><a href="javascript:;" data-financing_id="' + financing_id + '" class="delete"><i class="h-delete-icon"></i>删除</a></span>';
+                        html += '</div>';
+                        html += '</div>';
+                        $(".history-panel").append(html);
+                        layer.close(bbb);
+                    }
+                }
+            });
+        });
+        $(document).on('click', '.delete', function () {
+            var financing_id = $(this).data('financing_id');
+            var that = $(this);//解决作用域问题
+            $.ajax({
+                type: "POST",
+                url: "<?= Url::to(['stock-right/ajax-del-history']) ?>",
+                data: {'_csrf': "<?= Yii::$app->request->csrfToken ?>", 'financing_id': financing_id},
+                dataType: "json",
+                success: function (data) {
+                    if (data == '1') {
+                        that.parents(".history-box").remove();
+                    }
+                }
+            });
+        });
+        $(document).on('click', '.editing', function () {
+            var financing_id = $(this).data('financing_id');
+            $.ajax({
+                type: "POST",
+                url: "<?= Url::to(['stock-right/ajax-get-history']) ?>",
+                data: {'_csrf': "<?= Yii::$app->request->csrfToken ?>", 'financing_id': financing_id},
+                dataType: "json",
+                success: function (data) {
+                    if (data) {
+                        $('#financing_time').val(data.financing_time);
+                        $("#financing_stage").val(data.financing_stage);
+                        $("#financing_money").val(data.financing_money);
+                        $("#financing_currency").val(data.financing_currency);
+                        $("#financing_valuation").val(data.financing_valuation);
+                        $("#financing_valuation_currency").val(data.financing_valuation_currency);
+                        $("#financing_investors").val(data.financing_investors);
+                        //弹出层
+                        ccc = layer.open({
+                            type: 1,
+                            title: '编辑融资信息',
+                            skin: 'layui-layer-rim',
+                            area: ['350px', '430px'],
+                            content: $('.rz_history'),
+                            end: function () {
+                                //初始化数据
+                                $('.popup-keep').attr('data-id', '');
+                                $('#financing_time,#financing_stage,#financing_money,#financing_valuation,#financing_investors').val("");
+                                $('#financing_currency,#financing_valuation_currency').val("1");
+                            }
+                        });
+                    }
+                }
+            });
         });
         //融资历史相关的js~~~end
     });
