@@ -5,14 +5,14 @@ namespace app\models;
 use yii\db\ActiveRecord;
 use Yii;
 
-class EnterpriseBase extends ActiveRecord
+class StockBase extends ActiveRecord
 {
 
     public $code;
 
     public static function tableName()
     {
-        return "{{%enterprise_base}}";
+        return "{{%stock_base}}";
     }
 
     public function attributeLabels()

@@ -6,9 +6,9 @@ use app\controllers\CheckController;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
-use app\models\EnterpriseBase;
+use app\models\StockBase;
 use app\models\Region;
-use app\models\EnterpriseIndustry;
+use app\models\StockEnterpriseIndustry;
 use app\models\FinancingHistory;
 
 class StockRightController extends CheckController
@@ -33,10 +33,10 @@ class StockRightController extends CheckController
         $region_bid = Region::getList(['type' => 1]);
         $region_bid = ArrayHelper::map($region_bid, 'id', 'name');
         $region_bid = $choice + $region_bid;
-        $model = EnterpriseBase::find()->where(['user_id' => $this->userid])->one();
+        $model = StockBase::find()->where(['user_id' => $this->userid])->one();
         if (!$model)
         {
-            $model = new EnterpriseBase;
+            $model = new StockBase;
             // 2.0二级地区
             $region_mid = $choice;
             // 3.0三级地区
@@ -77,10 +77,10 @@ class StockRightController extends CheckController
         $region_bid = Region::getList(['type' => 1]);
         $region_bid = ArrayHelper::map($region_bid, 'id', 'name');
         $region_bid = $choice + $region_bid;
-        $model = EnterpriseBase::find()->where(['user_id' => $this->userid])->one();
+        $model = StockBase::find()->where(['user_id' => $this->userid])->one();
         if (!$model)
         {
-            $model = new EnterpriseBase;
+            $model = new StockBase;
             // 2.0二级地区
             $region_mid = $choice;
             // 3.0三级地区
@@ -110,7 +110,7 @@ class StockRightController extends CheckController
             }
         }
         # 所属领域
-        $field = EnterpriseIndustry::getList(['level' => 1]);
+        $field = StockEnterpriseIndustry::getList(['level' => 1]);
         $field = ArrayHelper::map($field, 'id', 'name');
         return $this->render('add_2', ['model' => $model, 'region_bid' => $region_bid, 'region_mid' => $region_mid, 'region_sid' => $region_sid, 'field' => $field]);
     }
@@ -120,10 +120,10 @@ class StockRightController extends CheckController
      */
     public function actionAdd_3()
     {
-        $model = EnterpriseBase::find()->where(['user_id' => $this->userid])->one();
+        $model = StockBase::find()->where(['user_id' => $this->userid])->one();
         if (!$model)
         {
-            $model = new EnterpriseBase;
+            $model = new StockBase;
         }
         if (Yii::$app->request->isPost)
         {
@@ -149,7 +149,7 @@ class StockRightController extends CheckController
             if (empty($data_financing_id))
             {
                 //添加
-                $projects_id = EnterpriseBase::find()->select('id')->where(['user_id' => $this->userid])->scalar();
+                $projects_id = StockBase::find()->select('id')->where(['user_id' => $this->userid])->scalar();
                 $request = Yii::$app->request;
                 $data = [
                     'projects_id' => $projects_id,
