@@ -10,7 +10,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => ''], 'description'
 ?>
 <div class="wrapper">
     <div class="framecenter">
-        <table style="width:90%;margin:0px auto;margin-top:100px;margin-bottom:50px;">
+        <table style="width:90%;margin:0px auto;padding-top: 100px;">
             <tr>
                 <td class="center">
                     <table style="margin:0px auto;">

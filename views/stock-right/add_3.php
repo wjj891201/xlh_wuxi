@@ -124,7 +124,11 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
                         <div class="svcase">
                             <div class="case-title-six"><i>*</i><p>商业计划书≤30M</p></div>
                             <div class="plan-upload-box">
-                                <i id="success-icon" class="success-icon"></i><span id="plan-text">未上传</span>
+                                <?php if (empty($model->business_plan)): ?>
+                                    <i id="success-icon" class="success-icon"></i><span id="plan-text">未上传</span>
+                                <?php else: ?>
+                                    <i id="success-icon" class="success-icon-back"></i><span id="plan-text">已上传</span>
+                                <?php endif; ?>
                                 <label for="plan-upload" class="plan-btn">
                                     <i class="upload-icon"></i>
                                     <p>上传</p>
@@ -135,6 +139,7 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
                             <?= $form->field($model, 'business_plan', ['errorOptions' => ['class' => 'exclamation']])->hiddenInput(['id' => 'business_plan'])->label(false); ?>
                         </div>
                         <div class="btn-group2">
+                            <a href="<?= Url::to(['stock-right/add_2']) ?>" class="cancel_button">上一步</a>
                             <?= Html::submitButton('提交项目', ['class' => 'submit_button']); ?>
                         </div>
                     </div>
@@ -363,7 +368,7 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
         var thisId = target.id;
         var formData = new FormData();
         formData.append("_csrf", "<?= Yii::$app->request->csrfToken ?>");
-        formData.append("type", 'project');
+        formData.append("type", 'prospectus');
         formData.append("file", $('#' + thisId)[0].files[0]);
         $.ajax({
             url: "<?= Url::to(['claims-right/ajax-upload-files']) ?>",
@@ -378,14 +383,15 @@ $this->registerJsFile('@web/public/wx/js/laydate/laydate.js', ['depends' => ['ap
                 //data，我们这里是异步上传到后端程序所返回的图片地址
                 var obj = JSON.parse(data);
                 if (obj.code == 20000) {
-                    $('#project_img').attr('src', '/' + obj.success.url);
-                    $("#bp_big_img").val(obj.success.url);
+                    $("#success-icon").addClass("success-icon-back").removeClass("success-icon");
+                    $("#plan-text").empty().html('已上传');
+                    $("#business_plan").val(obj.success.url);
                     //为了让yii2的验证生效
-                    $("#bp_big_img").focus();
-                    $("#bp_big_img").blur();
+                    $("#business_plan").focus();
+                    $("#business_plan").blur();
                 }
                 if (obj.code == 20001) {
-                    layer.msg(obj.error, {icon: 2, time: 2000});
+                    layer.tips(obj.error, '.plan-upload-box', {tips: [1, '#EA2000']});
                 }
             },
             error: function (responseStr) {

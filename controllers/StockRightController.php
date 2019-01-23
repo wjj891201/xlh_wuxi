@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\controllers\CheckController;
 use Yii;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 use app\models\EnterpriseBase;
 use app\models\Region;
 use app\models\EnterpriseIndustry;
@@ -129,7 +130,7 @@ class StockRightController extends CheckController
             $post = Yii::$app->request->post();
             if ($model->add($post, 's_3'))
             {
-                return $this->redirect(['stock-right/add_3']);
+                return $this->redirect(['call/mess', 'mess' => '发布成功', 'url' => Url::to(['stock-right/list'])]);
             }
         }
         # 融资轮次

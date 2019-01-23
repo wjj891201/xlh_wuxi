@@ -143,7 +143,7 @@ $this->registerJsFile('@web/public/wx/js/layer/layer.js', ['depends' => ['app\as
                         </div>
                     </div>
                     <div class="btn-group2">
-                        <a type="button" class="cancel_button" id="cancel">上一步</a>
+                        <a href="<?= Url::to(['stock-right/add']) ?>" class="cancel_button">上一步</a>
                         <?= Html::submitButton('下一步', ['class' => 'submit_button']); ?>
                     </div>
                 </div>

@@ -14,7 +14,6 @@ use yii\helpers\Url;
     <dl>
         <dt class="money_icon">我的融资</dt>
         <dd>
-            <a href="<?= Url::to(['claims-right/list']) ?>" <?php if ($this->context->id == 'claims-right'): ?>class="cur"<?php endif; ?>>债权融资项目</a>
             <a href="<?= Url::to(['stock-right/list']) ?>" <?php if ($this->context->id == 'stock-right'): ?>class="cur"<?php endif; ?>>股权融资项目</a>
         </dd>
     </dl>    

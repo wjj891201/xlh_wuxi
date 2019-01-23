@@ -107,6 +107,11 @@ class ClaimsRightController extends CheckController
             $allowed_types = ['jpg', 'jpeg', 'JPG', 'JPEG', 'PNG', 'png', 'gif', 'GIF'];
             $max_size = 10240000; //10M
         }
+        if ($type == 'prospectus')
+        {
+            $allowed_types = ['pdf', 'ppt', 'pptx'];
+            $max_size = 10240000; //10M
+        }
         $uploan_url = 'upfile/wx/' . date('Ymd') . '/';
         $result = $this->ajax_upload_do($uploan_url, $type, $allowed_types, $max_size);
         return $result;
