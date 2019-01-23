@@ -24,7 +24,8 @@ $this->registerJsFile('@web/public/backend/js/jquery.validate.js', ['depends' =>
                 });
             });
         });
-    });</script>
+    });
+</script>
 <div id="dcMain">
     <div id="urHere">管理中心<b>></b><strong>系统设置</strong></div>
     <div class="mainBox" style="height:auto!important;height:550px;min-height:550px;">

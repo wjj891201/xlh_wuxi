@@ -17,7 +17,7 @@ em, i { font-style: normal; }
 .bold { font-weight: bold; }
 .clear { clear: both; display: block; height: 0; line-height: 0; font-size: 0; }
 .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
-*html .clearfix { height: 1%; }
+.clearfix { height: 1%; }
 * + html .clearfix { height: 1%; }
 .none { display: none; }
 .cue { color: #999; }
@@ -418,7 +418,7 @@ a.setedit3 {background: url(../images/botton_set.gif) no-repeat;background-posit
 a:visited.setedit3 {display: block;color: #a45303;text-decoration: none;}
 a:hover.setedit3 {background: url(../images/botton_set.gif) no-repeat;background-position: 0px -110px;color: #384466;text-decoration: underline;}
 
-.form-group .radio{display: inline;margin-right: 15px;}
+.form-group .radio,.checkbox{display: inline;margin-right: 15px;}
 .field-validatetext{display: inline-block}
 
 a.datetime {background: rgba(0, 0, 0, 0) url("../images/icon.gif") no-repeat scroll 0 -640px;color: #c70505;display: inline-block;height: 16px;line-height: 16px;padding: 0 0 0 17px;text-decoration: none;width: 60px;}

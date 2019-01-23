@@ -68,6 +68,9 @@ AdminAsset::register($this);
                         <li><a href="<?= Url::to(['role/list']); ?>"><i class="system"></i><em>角色管理</em></a></li>
                         <li><a href="<?= Url::to(['access/list']); ?>"><i class="page"></i><em>权限管理</em></a></li>
                     </ul>
+                    <ul>
+                        <li><a href="<?= Url::to(['incubator/list']); ?>"><i class="article"></i><em>孵化管理</em></a></li> 
+                    </ul>
                 </div>
             </div>
 
