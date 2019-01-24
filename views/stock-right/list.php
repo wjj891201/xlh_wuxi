@@ -34,7 +34,31 @@ $this->registerCssFile('@web/public/wx/css/dai_member.css', ['depends' => 'app\a
                 <li class="w15per">项目阶段</li>
                 <li class="w25per">操作</li>
             </ul>
-            <ul class="examine_content" style="text-align: center;margin-top: 20px;">暂无信息</ul>
+            <ul class="examine_content_new">
+                <?php if (!empty($stock)): ?>
+                    <?php foreach ($stock as $key => $vo): ?>
+                        <li class="clearfix project-vessel">
+                            <div class="w45per">
+                                <a href="" class="pi-photo">
+                                    <img src="/<?= $vo['bp_big_img'] ?>">
+                                </a>
+                                <div class="pre-intro">
+                                    <b class="pi-title">
+                                        <a href=""><?= $vo['bp_name'] ?></a>
+                                    </b>
+                                    <p class="pi-money">融资金额：<span><?= $vo['t_finance_amount'] ?>万</span></p>
+                                </div>
+                            </div>
+                            <div class="w15per pi-msg"><p><?= date('Y-m-d', $vo['create_time']) ?></p></div>
+                            <div class="w15per pi-msg"><p>审核中</p></div>
+                            <div class="w25per pi-msg"></div>
+                            <div class="clearfix"></div>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php else: ?>
+                <ul class="examine_content" style="text-align: center;margin-top: 20px;">暂无信息</ul>
+            <?php endif; ?>
         </div>
     </div>
 </div>

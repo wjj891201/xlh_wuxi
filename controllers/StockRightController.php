@@ -19,8 +19,8 @@ class StockRightController extends CheckController
      */
     public function actionList()
     {
-
-        return $this->render('list');
+        $stock = StockBase::find()->select(['bp_name', 'bp_big_img', 't_finance_amount', 'create_time'])->where(['user_id' => $this->userid])->asArray()->all();
+        return $this->render('list', ['stock' => $stock]);
     }
 
     /**

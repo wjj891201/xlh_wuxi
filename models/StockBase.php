@@ -65,6 +65,7 @@ class StockBase extends ActiveRecord
                 ['email', 'email', 'message' => '{attribute}格式错误', 'on' => 's_1'],
                 ['company_website', 'url', 'defaultScheme' => 'http', 'message' => '正确填写{attribute}', 'on' => 's_1'],
                 [['company_type', 'tax_registration', 'organization_code', 'wechat'], 'safe', 'on' => 's_1'],
+                ['create_time', 'default', 'value' => time()],
                 [['bp_name', 'bp_instroduction', 'bp_project_content', 'bp_region_bid', 'bp_region_mid', 'bp_region_sid', 'bp_industry_id', 'bp_big_img', 'code', 'bp_gain_model', 'bp_analysis'], 'required', 'message' => '{attribute}必填', 'on' => 's_2'],
                 [['bp_profession', 'bp_tactic_plan'], 'safe', 'on' => 's_2'],
                 [['t_finance_amount', 't_finance_purpose', 't_sell_ratio', 't_listing_requirements', 'business_plan'], 'required', 'message' => '{attribute}必填', 'on' => 's_3'],
