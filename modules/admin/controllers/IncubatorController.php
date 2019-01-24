@@ -43,6 +43,7 @@ class IncubatorController extends CommonController
             //添加
             $model = new IncubatorBase;
             $message = '添加成功';
+            $model->incubator_recommend_index = 0;
         }
         if (Yii::$app->request->isPost)
         {

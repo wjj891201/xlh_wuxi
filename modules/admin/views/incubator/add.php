@@ -39,6 +39,12 @@ $this->registerJsFile('@web/public/backend/js/My97DatePicker/WdatePicker.js', ['
         ?>
         <table width="100%" border="0" cellpadding="8" cellspacing="0" class="tableBasic">
             <tr>
+                <td align="right">推荐</td>
+                <td colspan="2">
+                    <?= $form->field($model, 'incubator_recommend_index')->radioList(['0' => '不推荐', '1' => '推荐'], ['style' => 'display:inline;'])->label(false); ?>
+                </td>
+            </tr>
+            <tr>
                 <td width="20%" align="right">品牌名称</td>
                 <td colspan="2">
                     <?php echo $form->field($model, 'incubator_name')->textInput(['class' => 'inpMain', 'size' => 40])->label(false); ?>

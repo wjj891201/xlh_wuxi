@@ -13,7 +13,6 @@ $this->registerCssFile('@web/public/wx/css/banner.css', ['depends' => 'app\asset
 $this->registerJsFile('@web/public/wx/js/jquery.flexslider.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
 $this->registerJsFile('@web/public/wx/js/searchChild.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
 $this->registerJsFile('@web/public/wx/js/js.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
-$this->registerJsFile('@web/public/wx/js/menu.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
 $this->registerJsFile('@web/public/wx/js/banner.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
 $this->registerJsFile('@web/public/wx/js/yrd_service.js', ['depends' => ['app\assets\WxAsset'], 'position' => View::POS_HEAD]);
 

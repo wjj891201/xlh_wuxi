@@ -43,6 +43,7 @@ class IncubatorBase extends ActiveRecord
                 ['incubator_contact_phone', 'match', 'pattern' => '/^[1][35678][0-9]{9}$/', 'message' => '{attribute}格式错误'],
                 ['enterprise_count', 'number', 'message' => '{attribute}必须为数字'],
                 ['create_time', 'default', 'value' => time()],
+                ['incubator_recommend_index', 'safe']
         ];
     }
 

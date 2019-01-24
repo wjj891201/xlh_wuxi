@@ -27,7 +27,8 @@ class WxAsset extends AssetBundle
         'css/zi-footer.css'
     ];
     public $js = [
-        'js/jquery-1.10.2.min.js'
+        'js/jquery-1.10.2.min.js',
+        'js/menu.js'
     ];
     public $jsOptions = [
         'position' => View::POS_HEAD,

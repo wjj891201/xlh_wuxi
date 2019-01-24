@@ -52,7 +52,7 @@ return [
     # 孵化相关
     'incubator_type' => [
             ['id' => 1, 'name' => '国家级'],
-            ['id' => 2, 'name' => '省级/直辖市/自治区'],
+            ['id' => 2, 'name' => '省级'],
             ['id' => 3, 'name' => '其他'],
     ],
     'incubator_vector' => [
