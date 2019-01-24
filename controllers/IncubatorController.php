@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\controllers\CommonController;
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\data\Pagination;
 use app\models\IncubatorBase;
 
@@ -35,7 +36,15 @@ class IncubatorController extends CommonController
      */
     public function actionInfo()
     {
-        
+        $incubator_id = Yii::$app->request->get("incubator_id");
+        $info = IncubatorBase::find()->where(['incubator_id' => $incubator_id])->asArray()->one();
+        # 基础设施
+        $facility_ops = Yii::$app->params['facility_ops'];
+        $facility_ops = ArrayHelper::index($facility_ops, 'id');
+        # 特色服务
+        $service_ops = Yii::$app->params['service_ops'];
+        $service_ops = ArrayHelper::index($service_ops, 'id');
+        return $this->render('info', ['info' => $info, 'facility_ops' => $facility_ops, 'service_ops' => $service_ops]);
     }
 
 }

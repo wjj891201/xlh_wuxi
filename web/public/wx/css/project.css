@@ -48,6 +48,7 @@ a {
     }
 }
 
+/**
 @media screen and (min-width:1201px) {
     .wrapper {
         width: 100%;
@@ -55,7 +56,7 @@ a {
         background: #f6f6f6;
         overflow: hidden;
     }
-}
+}*/
 
 @media screen and (max-width:1200px) {
     .header {
@@ -189,7 +190,7 @@ a {
 }
 
 .top-bg {
-    background: url("img/P2-work.png") center no-repeat;
+    background: url("../images/P2-work.png") center no-repeat;
     width: 100%;
     height: 440px;
 }
@@ -233,7 +234,7 @@ a {
     display: inline-block;
     width: 16px;
     height: 16px;
-    background: url(img/field_ico.png) center no-repeat;
+    background: url(../images/field_ico.png) center no-repeat;
     margin-bottom: -1px;
     margin-right: 7px;
 }
@@ -242,7 +243,7 @@ a {
     display: inline-block;
     width: 12px;
     height: 16px;
-    background: url(img/address_ico.png) center no-repeat;
+    background: url(../images/address_ico.png) center no-repeat;
     margin-bottom: -3px;
     margin-right: 7px;
 }
@@ -338,7 +339,7 @@ a {
     display: inline-block;
     width: 26px;
     height: 23px;
-    background: url(img/apply_ico.png) center no-repeat;
+    background: url(../images/apply_ico.png) center no-repeat;
     margin-bottom: -4px;
     margin-right: 7px;
 }
@@ -391,7 +392,7 @@ a {
     top: 66px;
     width: 48px;
     height: 48px;
-    background: url(img/pre.png) center no-repeat;
+    background: url(../images/pre.png) center no-repeat;
     z-index: 999;
     cursor: pointer;
 }
@@ -403,17 +404,17 @@ a {
     top: 66px;
     width: 48px;
     height: 48px;
-    background: url(img/next.png) center no-repeat;
+    background: url(../images/next.png) center no-repeat;
     z-index: 999;
     cursor: pointer;
 }
 
 .prevBtn:hover {
-    background-image: url(img/pre_hover.png);
+    background-image: url(../images/pre_hover.png);
 }
 
 .nextBtn:hover {
-    background-image: url(img/next_hover.png);
+    background-image: url(../images/next_hover.png);
 }
 
 .house {
@@ -526,7 +527,7 @@ a {
     display: inline-block;
     width: 36px;
     height: 36px;
-    background: url(img/roadshow.png) center no-repeat;
+    background: url(../images/roadshow.png) center no-repeat;
     margin-bottom: 5px;
 }
 
@@ -534,7 +535,7 @@ a {
     display: inline-block;
     width: 36px;
     height: 36px;
-    background: url(img/mettingroom.png) center no-repeat;
+    background: url(../images/mettingroom.png) center no-repeat;
     margin-bottom: 5px;
 }
 
@@ -542,7 +543,7 @@ a {
     display: inline-block;
     width: 36px;
     height: 36px;
-    background: url(img/restroom.png) center no-repeat;
+    background: url(../images/restroom.png) center no-repeat;
     margin-bottom: 5px;
 }
 
@@ -550,7 +551,7 @@ a {
     display: inline-block;
     width: 36px;
     height: 36px;
-    background: url(img/modem.png) center no-repeat;
+    background: url(../images/modem.png) center no-repeat;
     margin-bottom: 5px;
 }
 
@@ -558,7 +559,7 @@ a {
     display: inline-block;
     width: 36px;
     height: 36px;
-    background: url(img/printdevice.png) center no-repeat;
+    background: url(../images/printdevice.png) center no-repeat;
     margin-bottom: 5px;
 }
 
@@ -566,7 +567,7 @@ a {
     display: inline-block;
     width: 36px;
     height: 36px;
-    background: url(img/bookmark.png) center no-repeat;
+    background: url(../images/bookmark.png) center no-repeat;
     margin-bottom: 5px;
 }
 
@@ -574,7 +575,7 @@ a {
     display: inline-block;
     width: 36px;
     height: 36px;
-    background: url(img/teacher.png) center no-repeat;
+    background: url(../images/teacher.png) center no-repeat;
     margin-bottom: 5px;
 }
 
@@ -582,7 +583,7 @@ a {
     display: inline-block;
     width: 36px;
     height: 36px;
-    background: url(img/invest.png) center no-repeat;
+    background: url(../images/invest.png) center no-repeat;
     margin-bottom: 5px;
 }
 
@@ -590,7 +591,7 @@ a {
     display: inline-block;
     width: 36px;
     height: 36px;
-    background: url(img/book.png) center no-repeat;
+    background: url(../images/book.png) center no-repeat;
     margin-bottom: 5px;
 }
 
@@ -630,7 +631,7 @@ a {
     top: 176px;
     width: 48px;
     height: 48px;
-    background: url(img/pre.png) center no-repeat;
+    background: url(../images/pre.png) center no-repeat;
     z-index: 999;
     cursor: pointer;
 }
@@ -642,17 +643,17 @@ a {
     top: 176px;
     width: 48px;
     height: 48px;
-    background: url(img/next.png) center no-repeat;
+    background: url(../images/next.png) center no-repeat;
     z-index: 999;
     cursor: pointer;
 }
 
 .prev-btn:hover {
-    background-image: url(img/pre_hover.png);
+    background-image: url(../images/pre_hover.png);
 }
 
 .next-btn:hover {
-    background-image: url(img/next_hover.png);
+    background-image: url(../images/next_hover.png);
 }
 
 .service-equipment {

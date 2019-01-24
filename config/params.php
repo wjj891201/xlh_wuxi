@@ -61,17 +61,17 @@ return [
             ['id' => 3, 'name' => '众创空间'],
     ],
     'facility_ops' => [
-            ['id' => 1, 'name' => '会议厅'],
-            ['id' => 2, 'name' => '路演厅'],
-            ['id' => 3, 'name' => '休息区'],
-            ['id' => 4, 'name' => '高速网络'],
-            ['id' => 5, 'name' => '打印设备'],
+            ['id' => 1, 'name' => '会议厅', 'img' => 'meetingroom'],
+            ['id' => 2, 'name' => '路演厅', 'img' => 'roadshow'],
+            ['id' => 3, 'name' => '休息区', 'img' => 'restroom'],
+            ['id' => 4, 'name' => '高速网络', 'img' => 'modem'],
+            ['id' => 5, 'name' => '打印设备', 'img' => 'printdevice'],
     ],
     'service_ops' => [
-            ['id' => 1, 'name' => '政策辅助'],
-            ['id' => 2, 'name' => '创业导师'],
-            ['id' => 3, 'name' => '投资对接'],
-            ['id' => 4, 'name' => '工商税务法等企业服务']
+            ['id' => 1, 'name' => '政策辅助', 'img' => 'support'],
+            ['id' => 2, 'name' => '创业导师', 'img' => 'teacher'],
+            ['id' => 3, 'name' => '投资对接', 'img' => 'invest'],
+            ['id' => 4, 'name' => '工商税务法等企业服务', 'img' => 'commercial']
     ],
     'incubator_property' => [
             ['id' => 1, 'name' => '国有'],
