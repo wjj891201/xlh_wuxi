@@ -158,7 +158,7 @@ $this->registerJsFile('@web/public/backend/js/layer/layer.js', ['depends' => ['a
                         html += '<td align="center">' + item.office_price + '</td>';
                         html += '<td align="center">' + item.office_unit + '</td>';
                         html += '<td align="center">';
-                        html += '<a href="">删除</a>';
+                        html += '<a href="/admin/incubator/del-office?id=' + item.id + '">删除</a>';
                         html += '</td>';
                         html += '</tr>';
                     });

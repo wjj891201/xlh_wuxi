@@ -99,4 +99,18 @@ class IncubatorController extends CommonController
         exit;
     }
 
+    /**
+     * 删除户型
+     */
+    public function actionDelOffice()
+    {
+        $id = Yii::$app->request->get('id');
+        $row = IncubatorOffice::deleteAll(['id' => $id]);
+        if ($row)
+        {
+            Yii::$app->session->setFlash("success", "户型删除成功");
+            return $this->redirect(['incubator/list']);
+        }
+    }
+
 }
