@@ -50,7 +50,7 @@ WxAsset::register($this);
                     </div>
                     <ul class="spmenu-nav clearfix">
                         <li><a href="../" <?php if ($this->context->id == 'index'): ?>class="smenu-cur"<?php endif; ?>>首页</a></li>
-                        <li class="more gqrz smenu-cur"><a href="">股权融资</a></li>                        
+                        <li class="more gqrz smenu-cur"><a href="" <?php if ($this->context->id == 'project-library'): ?>class="smenu-cur"<?php endif; ?>>股权融资</a></li>                        
                         <li><a href="">金融路演</a></li>                        
                         <li><a href="<?= Url::to(['incubator/list']) ?>" <?php if ($this->context->id == 'incubator'): ?>class="smenu-cur"<?php endif; ?>>产业招商</a></li>
                         <li><a href="">金融招商</a></li>                    
@@ -61,19 +61,10 @@ WxAsset::register($this);
                 </div>
             </div>
             <div class="wxmenu-container wxmenu-nav-down cone">
-                <div class="m1200 smenu-content">
+                <div class="m1200 smenu-content" style="width: 290px;">
                     <ul class="smenu-nav clearfix" style="height: 50%;">
-                        <li><a href="" target="_blank">项目库</a></li>
-                        <li><a href="" target="_blank">投资人</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="wxmenu-container wxmenu-nav-down ctwo">
-                <div class="m1200 smenu-content">
-                    <ul class="smenu-nav clearfix" style="height: 50%;">
-                        <li><a href="" target="_blank">找贷款</a></li>
-                        <li><a href="" target="_blank">选项目</a></li>
-                        <li><a href="" target="_blank">贷款工具</a></li>
+                        <li><a href="<?= Url::to(['project-library/list']) ?>">项目库</a></li>
+                        <li><a href="">投资人</a></li>
                     </ul>
                 </div>
             </div>
@@ -82,11 +73,6 @@ WxAsset::register($this);
                     $('.cone').show();
                 }, function () {
                     $('.cone').hide();
-                });
-                $(".spmenu-nav li.zqrz a,.ctwo").hover(function () {
-                    $('.ctwo').show();
-                }, function () {
-                    $('.ctwo').hide();
                 });
             </script>
             <div id="content_here">
