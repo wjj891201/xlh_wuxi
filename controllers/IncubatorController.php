@@ -37,7 +37,7 @@ class IncubatorController extends CommonController
     public function actionInfo()
     {
         $incubator_id = Yii::$app->request->get("incubator_id");
-        $info = IncubatorBase::find()->where(['incubator_id' => $incubator_id])->asArray()->one();
+        $info = IncubatorBase::find()->where(['incubator_id' => $incubator_id])->one();
         # 基础设施
         $facility_ops = Yii::$app->params['facility_ops'];
         $facility_ops = ArrayHelper::index($facility_ops, 'id');

@@ -64,4 +64,9 @@ class IncubatorBase extends ActiveRecord
         return $result;
     }
 
+    public function getOffice()
+    {
+        return $this->hasMany(IncubatorOffice::className(), ['incubator_id' => 'incubator_id']);
+    }
+
 }

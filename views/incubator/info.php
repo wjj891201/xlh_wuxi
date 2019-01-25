@@ -43,11 +43,13 @@ $this->registerJsFile('@web/public/wx/js/swiper-3.4.0.jquery.min.js', ['depends'
         <div class="fh-col">
             <h3 class="fh-col-title">孵化户型</h3>
             <div class="lt-panel">
-                <a class="lt-house">
-                    <img src="" alt="">
-                    <p class="house-type">111</p>
-                    <p class="house-price">￥1元/工位/月</p>
-                </a>
+                <?php foreach ($info['office'] as $key => $vo): ?>
+                    <a class="lt-house">
+                        <img src="<?= $vo['office_pic'] ?>" alt="<?= $vo['office_style'] ?>">
+                        <p class="house-type"><?= $vo['office_style'] ?></p>
+                        <p class="house-price">￥<?= $vo['office_price'] ?>元/<?= $vo['office_unit'] ?></p>
+                    </a>
+                <?php endforeach; ?>
             </div>
         </div>
         <div class="fh-col" id="fh-details">
