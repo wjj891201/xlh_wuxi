@@ -7,6 +7,7 @@ use Yii;
 use yii\helpers\ArrayHelper;
 use yii\data\Pagination;
 use app\models\IncubatorBase;
+use app\models\IncubatorOffice;
 
 class IncubatorController extends CommonController
 {
@@ -73,35 +74,29 @@ class IncubatorController extends CommonController
     }
 
     /**
-     * 处理广告的批量删除和排序
+     * 添加户型
      */
-    public function actionDeal()
+    public function actionAddIncubatorOffice()
     {
-        $post = Yii::$app->request->post();
-        if ($post['action'] == 'del')
+        $data = Yii::$app->request->post();
+        Yii::$app->db->createCommand()->insert("{{%incubator_office}}", $data)->execute();
+        $id = Yii::$app->db->getLastInsertID();
+        if ($id)
         {
-            foreach ($post['id'] as $vo)
-            {
-                IncubatorBase::deleteAll('id = :id', [":id" => $vo]);
-            }
-            Yii::$app->session->setFlash("success", "删除成功");
+            Yii::$app->session->setFlash("success", "户型添加成功");
+            return $this->redirect(['incubator/list']);
         }
-        if ($post['action'] == 'sort')
-        {
-            foreach ($post['pid'] as $key => $vo)
-            {
-                if (is_numeric($vo))
-                {
-                    IncubatorBase::updateAll(['pid' => $vo], ['id' => $key]);
-                }
-                else
-                {
-                    break;
-                }
-            }
-            Yii::$app->session->setFlash("success", "排序成功");
-        }
-        return $this->redirect(['incubator/list']);
+    }
+
+    /**
+     * ajax获取户型列表
+     */
+    public function actionAjaxGetOffice()
+    {
+        $incubator_id = Yii::$app->request->post('incubator_id');
+        $list = IncubatorOffice::find()->where(['incubator_id' => $incubator_id])->asArray()->all();
+        echo json_encode($list);
+        exit;
     }
 
 }
