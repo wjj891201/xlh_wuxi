@@ -58,7 +58,7 @@ $this->registerCssFile('@web/public/wx/css/project_2.css', ['depends' => 'app\as
                                 <li class="clearfix">
                                     <div class="list_left">
                                         <div class="img_message">
-                                            <a href="" target="_blank">
+                                            <a href="<?= Url::to(['project-library/detail', 'id' => $vo['id']]) ?>">
                                                 <img src="/<?= $vo['bp_big_img'] ?>">
                                             </a>
                                         </div>
@@ -75,7 +75,7 @@ $this->registerCssFile('@web/public/wx/css/project_2.css', ['depends' => 'app\as
                                         <p class="financing">
                                             融资金额：<span><?= $vo['t_finance_amount'] ?>万</span>
                                         </p>
-                                        <a href="" class="view_details" target="_blank">查看详情</a>
+                                        <a href="<?= Url::to(['project-library/detail', 'id' => $vo['id']]) ?>" class="view_details">查看详情</a>
                                         <span class="comment_number_new">
                                             <i class="viewnum"></i>
                                             227											

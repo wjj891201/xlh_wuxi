@@ -109,4 +109,9 @@ class StockBase extends ActiveRecord
         return $this->hasMany(FinancingHistory::className(), ['projects_id' => 'id']);
     }
 
+    public function getIndustry()
+    {
+        return $this->hasOne(StockEnterpriseIndustry::className(), ['id' => 'bp_industry_id']);
+    }
+
 }
